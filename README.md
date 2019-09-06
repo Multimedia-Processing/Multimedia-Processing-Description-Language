@@ -1,2 +1,27 @@
-# Multimedia-Processing-Description-Language
-文字（text）、圖片 （picture）、圖形（graphic）、影像 （ image ）、影片（ video ）、動畫 （animation）、音樂（music）、聲音 （sound）
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)
+===
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是將一部影片如何經由素材、製作流程與後製三項元素融合製作而成，但以程式腳本的方式描述一部影片的製作方式，三項元素分別是:
+
+1. 規劃  
+前期製作、劇本、腳本、分鏡、運鏡、後製、殺青等
+
+1. 素材  
+製作影片的材料，也就是將多媒體的種類、規格、規範等描述出來，如下常見的媒體:
+  - 文字
+  - 圖片
+  - 圖形
+  - 影像
+  - 影片
+  - 動畫
+  - 音樂
+  - 聲音  
+  ...
+
+
+2. 處理  
+多媒體經過處理產生影片，如下常見處理方式:
+  - 剪輯
+  - 特效
+  - 合成
+  - 字幕  
+  ...
