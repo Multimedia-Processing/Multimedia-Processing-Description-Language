@@ -83,7 +83,8 @@ composite()
 export(export_movie_settings)
 ```
 
-## 布林運算
+## 運算
+### 布林運算
 ```
 True
 False
