@@ -1,6 +1,6 @@
 「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)
 ===
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是將一部影片如何經由素材、製作流程與後製三項元素融合製作而成，但以程式腳本的方式描述一部影片的製作方式，三項元素分別是:
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是將一部影片如何經由素材、規劃與後製三項元素融合製作而成，但以程式腳本的方式描述一部影片的製作方式，語法靈感來自Python，因此如果熟悉Python會輕鬆使用，三項元素分別是:
 
 1. 規劃  
   影片製作的流程與工作項目，如下常見的流程:
@@ -25,7 +25,7 @@
     - 影片
     - 動畫
     - 音樂
-    - 聲音  
+    - 音效  
     ...
 
 2. 處理  
@@ -38,3 +38,15 @@
     - 語音自動翻譯
     - 語音自動產生字幕  
     ...
+
+語法
+===
+## 匯入素材
+素材必須以SHA3將數位檔案經過雜湊後產生對應的數位摘要，來對應
+
+```MPDL
+from . import hash_vlue as
+import
+```
+
+## 軌道
