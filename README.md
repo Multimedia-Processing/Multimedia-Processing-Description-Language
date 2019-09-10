@@ -41,12 +41,92 @@
 
 語法
 ===
-## 匯入素材
-素材必須以SHA3將數位檔案經過雜湊後產生對應的數位摘要，來對應
-
-```MPDL
-from . import hash_vlue as
-import
+## 匯入素材、特效、合成
+匯入素材的方式必須以SHA3或SHA2先將數位檔案經過雜湊後產生對應的數位指紋來對應所要的素材，會有一個檔案紀錄雜湊值對應的檔案，名稱不限制。
+```
+from .file.directory import hash_vlue as vlase
+import hash_vlue
 ```
 
+目錄匯入設定
+- `file_directory/` = `file_directory`
+- `file_directory/file_directory/` = `file_directory.file_directory`
+- `./file_directory/` = `.file_directory`  
+- `./file_directory/file_directory` = `.file_directory.file_directory`  
+- `../file_directory` = `..file_directory`
+- `../file_directory/file_directory` = `..file_directory.file_directory`
+
+
 ## 軌道
+定義軌道，
+```
+track(sequence):
+    track()
+```
+## 素材設定
+```
+clip()
+```
+
+## 特效
+```
+effects()
+```
+
+## 合成
+```
+composite()
+```
+
+## 輸出
+```
+export(export_movie_settings)
+```
+
+## 布林運算
+```
+True
+False
+```
+### 數學運算
+```
++
+-
+*
+/
+```
+
+### 比較運算
+```
+==
+>=
+<=
+>
+<
+```
+
+## 流程控制
+```
+if 1 == 1:
+    track()
+
+elif 1 > 2:
+    track()
+
+else:
+    track()
+```
+
+## 迴圈
+### while迴圈
+
+```
+while True:
+    track()
+```
+
+### for迴圈
+```
+for x in xlist:
+    track(x)
+```
