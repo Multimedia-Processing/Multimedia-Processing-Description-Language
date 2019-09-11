@@ -4,7 +4,7 @@
 
 核心
 ===
-MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、**版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、 **版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
 「多媒體」(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
@@ -52,7 +52,7 @@ Git版本控制
 「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)
 
 ## 融合
-將上述技術做融合，已達到新的多媒體製作解決方案
+將上述技術做融合，已達到新的多媒體製作解決方案。
 
 語法概念
 ===
