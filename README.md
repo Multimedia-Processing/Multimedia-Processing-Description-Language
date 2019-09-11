@@ -4,15 +4,22 @@
 
 核心
 ===
-MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、**版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到所融合的技術，也就此語言是創新的多媒體解決方案，達到多媒體可以不斷的製作、修正這兩個裡面循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、**版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
+多媒體(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
+多媒體從字面上來看，就是「多」(Multi)和「媒體」(Media)的結合。  
+
+其中「媒體」(medium)一詞來自於拉丁文「medius」一字，為「中介的」、「中間的」意思。韋伯字典中「medium」一詞之義為「立於中間或中介的某種東西」。因此，人與人之間所賴以溝通的觀念、思想或意見的中介物便可稱之為媒體。  
+
+媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的媒體如文字(text)、圖片(picture)、圖形(graphic)、影像(image)、影片(video)、動畫(animation)、音樂(music)、聲音(sound)等[3]。  
 
 ## 敏捷軟體開發宣言
+
 ### 核心
 **個人與互動** 重於 流程與工具  
 **可用的軟體** 重於 詳盡的文件  
-**與客戶合作** 重於 合約協商 
+**與客戶合作** 重於 合約協商  
 **回應變化** 重於 遵循計劃  
 
 ### 原則
