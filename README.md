@@ -52,7 +52,7 @@ Git版本控制
 「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)
 
 ## 融合
-
+將上述技術做融合，已達到新的多媒體製作解決方案
 
 語法概念
 ===
