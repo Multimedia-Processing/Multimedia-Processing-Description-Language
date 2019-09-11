@@ -1,6 +1,27 @@
 「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)
 ===
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是將一部影片如何經由素材、規劃與後製三項元素融合製作而成，但以程式腳本的方式描述一部影片的製作方式，語法靈感來自Python，因此如果熟悉Python會輕鬆使用，三項元素分別是:
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是將多媒體經由素材、規劃與處理三項元素融合製作而成，但以程式腳本的方式描述多媒體產生的方式。
+
+核心
+===
+MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、**版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到所融合的技術，也就此語言是創新的多媒體解決方案，達到多媒體可以不斷的製作、修正這兩個裡面循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+
+## 多媒體
+
+## 敏捷軟體開發宣言
+### 核心
+**個人與互動** 重於 流程與工具  
+**可用的軟體** 重於 詳盡的文件  
+**與客戶合作** 重於 合約協商 
+**回應變化** 重於 遵循計劃  
+
+### 原則
+
+## 融合
+
+語法概念
+===
+語法靈感來自Python，因此如果熟悉Python會輕鬆使用，三項元素分別是:
 
 1. 規劃  
   影片製作的流程與工作項目，如下常見的流程:
