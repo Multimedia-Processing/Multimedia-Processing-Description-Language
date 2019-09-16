@@ -4,7 +4,7 @@
 
 核心
 ===
-MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、 **版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將「多媒體」(Multimedia)、「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)、Git版本控制、「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)等多種技術融合，此語言是為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
 「多媒體」(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
@@ -61,7 +61,7 @@ DevOps是將核心理念專注在開發與維護運作，此方式將過去瀑�
 ### CI/CD
 「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)是為了可以達到專注開發與運作維護所設計的工具，利用多項的技術與工具達到靜態檢查、動態檢查、修改項目、風格化檢查、除錯等。  
 
-持續整合意思就是將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
+「持續整合」(CI, Continuous Integration)是針對Git的每一次的提交、拉請求、系統變動，能夠持續且自動地進行驗證。意思就是將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
 
 持續發佈就是在上述都達到與通過後，自動化的發佈不同版本、平台與系統，讓人們在使用上可以有一定的程度上有品質。
 
