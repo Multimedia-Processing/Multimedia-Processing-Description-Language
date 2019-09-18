@@ -15,7 +15,7 @@ MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、 **版本控制** �
 媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的媒體如文字(text)、圖片(picture)、圖形(graphic)、影像(image)、影片(video)、動畫(animation)、音樂(music)、聲音(sound)等[3]。  
 
 ## 敏捷軟體開發宣言
-「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)
+「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)是為了解決瀑布式開發模式無法面對現在快速的需求變化而發展出的模式，其中做著名的方式就是Scrum模式，針對Scrum模式而設計的解決方案如DevOps、CI/CD等，已經被微軟、GitHub與Google等所支持。
 
 ### 核心
 藉著親自並協助他人進行軟體開發，我們正致力於發掘更優良的軟體開發方法。透過這樣的努力，我們已建立以下價值觀:  
@@ -43,18 +43,17 @@ MPDL是將 **多媒體** 、 **敏捷軟體開發宣言** 、 **版本控制** �
 - 最佳的架構、需求與設計皆來自於能自我組織的團隊。
 - 團隊定期自省如何更有效率，並據之適當地調整與修正自己的行為。
 
-### 實作
-
-
 ## Git版本控制
 Git版本控制是一個管理程式碼版本的管理系統，以分散式管控、大型的多人協作最為重要，其中軟體到核心概念是「合併」(Merge)。  
 
 此軟體的想法來自於Linux之父，目的就是來自於當時全世界都在開發Linux的系統內核，大量的人開發者參與其中，因此需要一個並非是集中式管理機制來解決程式衝突的問題，此機制儼然而生。
 
 ## 敏捷軟體開發解決方案
-「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)是為了實現「敏捷軟體開發宣言」而提出的解決方案，達到程式開發的快速迭代、更新與自動化。  
+在「敏捷軟體開發宣言」而提出的解決方案Scrum模式，其中使用了「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)這兩項核心與技術來實現Scrum，達到程式開發的快速迭代、更新與自動化。  
 
-CI/CD是為了實現DevOps開發模式，也就是DevOps的開發模式是為了實現Agile的開發方式。  
+### Scrum
+為了實現敏捷軟體開發宣言有人提出了Scrum，其中的概念來自於橄欖球，橄欖球中不同的角色與職位在各階段的互相重疊完成，歷史如下:
+-
 
 ### DevOps
 「開發與運維」(DevOps, Development Operations)是一個開發軟體的流程，理念是將軟體開發專注於 **開發與運作維護** ，實現敏捷軟體開發宣言的解決方案之一，也是目前Azure、GitHub與Google等都有支持的模式，Windows10的開發也是依照這個做出開發。  
