@@ -252,8 +252,8 @@ for x in xlist:
 
 參考文獻
 ===
-https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/
-https://tuna.to/agile-2-73856205bc9e
-https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/
-https://zh.wikipedia.org/wiki/Scrum
-https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91
+https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/  
+https://tuna.to/agile-2-73856205bc9e  
+https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/  
+https://zh.wikipedia.org/wiki/Scrum  
+https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91  
