@@ -92,7 +92,7 @@ Scrum角色有三種，「開發團隊」(Dev Team, Development Team)、「產�
 #### 潛在可交付產品增量
 「潛在可交付產品增量」(Potentially Shippable Product Increment)開發團隊的產出，簡單的說就是PO說要上線就可以馬上上線的東西才算數。
 
-Burndown Chart（燃盡圖）
+#### Burndown Chart（燃盡圖）
 有點類似怪物的血條，看看還剩多少血怪（Sprint Backlog）才死。以Task大小為單位。
 
 ### DevOps
