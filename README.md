@@ -84,16 +84,18 @@ Scrum角色有三種，「開發團隊」(Dev Team, Development Team)、「產�
 「任務」(Task)是開發團隊針對物件所列出的任務;任務的分配是開發團隊自己分配的。
 
 #### 產品待辦清單
-「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。內容產品負責人負責調整、製作，以物件為單位，製作的時間長度以天為單位，順序由上而下。
+「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。內容產品負責人負責調整、製作，以「物件」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
 
 #### 衝刺待辦清單
-「衝刺待辦清單」(Sprint Backlog)是開發團隊向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「物件列表」(Item List)，以任務為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。
+「衝刺待辦清單」(Sprint Backlog)是開發團隊向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「物件列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。
 
 #### 潛在可交付產品增量
 「潛在可交付產品增量」(Potentially Shippable Product Increment)開發團隊的產出，簡單的說就是PO說要上線就可以馬上上線的東西才算數。
 
-#### Burndown Chart（燃盡圖）
-有點類似怪物的血條，看看還剩多少血怪（Sprint Backlog）才死。以Task大小為單位。
+#### 燃盡圖
+「燃盡圖」(Burndown Chart)是一個公開展示的圖表，顯示當前「衝刺」(Sprint)中未完成的「任務」(Task)數目，或在「衝刺待辦清單」(Sprint Backlog)上未完成的清單數目。  
+
+「燃盡圖」(Burndown Chart)在每次的「衝刺」(Sprint)中大部分時間內都維持平坦，但計畫仍然可以按照既定時間進行，也就是說盡量將工作規劃與平均分配好，但又可以完成指定的工作量。  
 
 ### DevOps
 「開發與運維」(DevOps, Development Operations)是一個開發軟體的流程，理念是將軟體開發專注於 **開發與運作維護** ，實現敏捷軟體開發宣言的解決方案之一，也是目前Azure、GitHub與Google等都有支持的模式，Windows10的開發也是依照這個做出開發。  
@@ -130,8 +132,8 @@ DevOps是將核心理念專注在開發與維護運作，此方式將過去瀑�
     - 後製
     - 殺青  
     - 翻譯
-    - 販賣
     - 授權  
+    - 販賣
     ...
 
 1. 素材  
@@ -257,3 +259,5 @@ https://tuna.to/agile-2-73856205bc9e
 https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/  
 https://zh.wikipedia.org/wiki/Scrum  
 https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91  
+https://zh.wikipedia.org/wiki/%E7%87%83%E5%B0%BD%E5%9B%BE  
+https://zh.wikipedia.org/wiki/%E6%8C%A3%E5%80%BC%E7%AE%A1%E7%90%86  
