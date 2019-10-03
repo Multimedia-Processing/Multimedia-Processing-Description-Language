@@ -83,16 +83,18 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「項目」(Item)，也稱作為「描述」(Story)，是產品負責人定義的，「項目」(Item)的大小要剛好可以團隊在平常可以完成3~5個，太多太繁雜，太少沒做完感覺沒有用，都會打擊團隊。
 
 ##### 任務
-「任務」(Task)是開發團隊針對物件所列出的任務;任務的分配是開發團隊自己分配的。
+「任務」(Task)是「開發團隊」(Dev Team, Development Team)針對物件所列出的任務;任務的分配是開發團隊自己分配的。
 
 ##### 產品待辦清單
-「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。內容產品負責人負責調整、製作，以「項目」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
+「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。  
+
+內容產品負責人負責調整、製作，以「項目」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
 
 ##### 衝刺待辦清單
 「衝刺待辦清單」(Sprint Backlog)是「開發團隊」向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。
 
 ##### 潛在可交付產品增量
-「潛在可交付產品增量」(Potentially Shippable Product Increment)開發團隊的產出，簡單的說就是PO說要上線就可以馬上上線的東西才算數。
+「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是PO說要上線就可以馬上上線的東西才算數。
 
 ##### 燃盡圖
 「燃盡圖」(Burndown Chart)是一個公開展示的圖表，顯示當前「衝刺」(Sprint)中未完成的「任務」(Task)數目，或在「衝刺待辦清單」(Sprint Backlog)上未完成的「項目」(Item)數目。  
@@ -100,26 +102,28 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「燃盡圖」(Burndown Chart)在每次的「衝刺」(Sprint)中大部分時間內都維持平坦，但計畫仍然可以按照既定時間進行，也就是說盡量將工作規劃與平均分配好，但又可以完成指定的工作量。  
 
 #### 活動
-每一個活動都有其目的和「時間限制」(Time Boxed)。主要活動如下：
+每一個活動都有其目的和「時間限制」(Time Boxed)，主要活動如下：
 
 ##### 衝刺
 「衝刺」(Sprint)是指「開發團隊」向「產品負責人」(PO, Product Owner)承諾在指定的時間內可以完成的「項目」(Item)後，就著手去想辦法在時間內完成「項目」(Item)。  
 
 「衝刺」(Sprint)是以週來做單位計算，通常是1~4週，但盡量不要超過兩週，並且「衝刺」(Sprint)長度應該要保持穩定盡可能不變，這樣才容易讓團隊掌握節奏，也容易預估和比較「衝刺」(Sprint)內的工作量。
 
-大原則是Sprint內的Sprint Backlog不改變（有原則就有例外）。
+大原則是「衝刺」(Sprint)內的Sprint Backlog不改變（有原則就有例外）。
 
 ##### 每日站立會議
-「每日站立會議」(Daily Scrum)每天10–15分鐘不能超時，目的是讓團隊資訊同步。一定要站著罰站為了讓大家長話短說。
+「每日站立會議」(Daily Scrum)每天10–15分鐘不能超時，目的是讓團隊資訊同步，一定要站著罰站為了讓大家長話短說。
 
 ##### 衝刺規劃會議
-「衝刺規劃會議」(Sprint Planning)Sprint開始時，討論一下這個Sprint團隊可以交付哪些Item。Item優先順序PO決定，要選多少Item由Dev Team決定。
+「衝刺規劃會議」(Sprint Planning)是指「衝刺」(Sprint)開始時，討論一下這個「衝刺」(Sprint)團隊可以交付哪些「項目」(Item)。  
+
+「項目」(Item)優先順序「產品負責人」(PO, Product Owner)決定，要選多少「項目」(Item)由「開發團隊」(Dev Team)決定。
 
 ##### 產品待辦清單精煉會議
-「產品待辦清單精煉會議」(Product Backlog Refinement / PBR)PO跟Team一起討論近期內會開始施工的Item，主要是從商業和使用者角度切入，盡可能不觸及技術細節。
+「產品待辦清單精煉會議」(Product Backlog Refinement / PBR)是「產品負責人」(PO, Product Owner)跟Team一起討論近期內會開始施工的「項目」(Item)，主要是從商業和使用者角度切入，盡可能不觸及技術細節。
 
 ##### 衝刺檢視會議
-Sprint Review（衝刺檢視會議）Sprint結束時針對產品的會議，PO邀請利害關係人對產出給意見，是要可用的軟體才算產出。不準備PowerPoint或其他簡報，單純就軟體操作取得回饋。
+「衝刺檢視會議」(Sprint Review)是指「衝刺」(Sprint)結束時針對產品的會議，PO邀請利害關係人對產出給意見，是要可用的軟體才算產出。不準備PowerPoint或其他簡報，單純就軟體操作取得回饋。
 
 ##### 衝刺回顧會議
 Sprint Retrospective / Sprint Retro（衝刺回顧會議）我偏好稱這一項為「自省」會議。在Sprint Review後，Scrum Team成員（Dev Team或包含PO）針對這個Sprint團隊的工作模式討論改善，並定出下個Sprint改善事項。為了創造一個安全的環境，原則上只有團隊成員才能參加。
