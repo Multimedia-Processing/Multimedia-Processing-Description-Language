@@ -1,10 +1,10 @@
 「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)
 ===
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現**「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)**的製作模式，將多媒體經由素材、規劃與處理三項元素融合製作而成，但以程式腳本的方式描述多媒體產生的方式。
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 的製作模式，將多媒體處理方式劃分成素材、規劃與處理三項元素融合製作而成，但以程式腳本的方式描述多媒體產生的方式。
 
 核心
 ===
-MPDL是為了實現 將**多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制、「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+MPDL是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制** 、 **「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
 「多媒體」(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
@@ -12,7 +12,7 @@ MPDL是為了實現 將**多媒體** 、 **敏捷軟體開發宣言** 、 **分�
 
 其中「媒體」(medium)一詞來自於拉丁文「medius」一字，為「中介的」、「中間的」意思。韋伯字典中「medium」一詞之義為「立於中間或中介的某種東西」。因此，人與人之間所賴以溝通的觀念、思想或意見的中介物便可稱之為媒體。  
 
-媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的媒體如文字(text)、圖片(picture)、圖形(graphic)、影像(image)、影片(video)、動畫(animation)、音樂(music)、聲音(sound)等[3]。  
+媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的「媒體如文字」(text)、「圖片」(picture)、「圖形」(graphic)、「影像」(image)、「影片」(video)、「動畫」(animation)、「音樂」(music)、「聲音」(sound)等[3]。  
 
 ## 敏捷軟體開發宣言
 「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)是為了解決瀑布式開發模式無法面對現在快速的需求變化而發展出的模式，其中做著名的方式就是Scrum模式，針對Scrum模式而設計的解決方案如DevOps、CI/CD等，已經被微軟、GitHub與Google等所支持。
@@ -65,7 +65,7 @@ Git版本控制是一個管理程式碼版本的分散式管理系統，以分�
 此方式將過去瀑布式開發流程:需求規格、系統分析、系統設計、實作、測試、部署與維護，必須依照這個開發，當有問題時就會往後一步驟重新來，瀑布式開發流程造成開發過程無法快速應變需求與改變，在Scrum的概念出現後狀況得以改變，這個想法也剛好很符合「敏敏捷軟體開發宣言」所提到的訴求與想法。  
 
 #### 角色
-Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產品負責人」(PO, Product Owner)、「Scrum專家」(SM, ScrumMaster)，開發團隊負責產生內容，產品負責人負責修正與想出內容的方向，而Scrum專家類似於教練與輔導員的角色，我們稱三者組成的團隊或組織叫做Scrum Team或者Team，如下做詳細解說。  
+Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產品負責人」(PO, Product Owner)、「Scrum專家」(SM, ScrumMaster)，開發團隊負責產生內容，產品負責人負責修正與想出內容的方向，而Scrum專家類似於教練與輔導員的角色，我們稱三者組成的團隊或組織叫做「Scrum團隊」(Scrum Team)或者「團隊」(Team)，如下做詳細解說。  
 
 ##### 開發團隊
 「開發團隊」(Dev Team, Development Team)是實際產成果的團隊，以完成客戶需求產生有用的軟體作為目標，以如何解決問題作為遇到問題的方式，並以自我管理與持續改善作為遇到問題解決的基石。  
@@ -74,7 +74,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「產品負責人」(PO, Product Owner)決定程式開發方向的，並針對需求與「利益關係人」調整成果的方向，可以一位或者多位組成。所謂的「利益關係人」類似於你的老闆、客戶、主管等，會提出建議、影響程式走向的人。「產品負責人」就負責將這些內容重新的整理並告知開發團隊做調整，讓團隊的開發可以持續的開發與修正。
 
 ##### Scrum專家
-「Scrum專家」(SM, ScrumMaster)是Scrum的教練與輔導員，讓整個團隊可以合理的使用Scrum，並幫助團隊解決實施過程中的問題，並時常的為團隊提出意見做改進，以「我現在的行動可以幫助團隊和組織盡快獨立自主嗎？」這件事情為行為的出發。  
+「Scrum專家」(SM, ScrumMaster)也稱為「Scrum主管」或「Scrum促進者」，是Scrum的教練與輔導員，讓整個團隊可以合理的使用Scrum，並幫助團隊解決實施過程中的問題，並時常的為團隊提出意見做改進，以「我現在的行動可以幫助團隊和組織盡快獨立自主嗎？」這件事情為行為的出發。  
 
 #### 物件
 以下是Scrum常見的名稱與物件，也是通用的物件，基本不同的管理系統都會有這個:
@@ -109,10 +109,20 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 
 「衝刺」(Sprint)是以週來做單位計算，通常是1~4週，但盡量不要超過兩週，並且「衝刺」(Sprint)長度應該要保持穩定盡可能不變，這樣才容易讓團隊掌握節奏，也容易預估和比較「衝刺」(Sprint)內的工作量。
 
-大原則是「衝刺」(Sprint)內的Sprint Backlog不改變（有原則就有例外）。
+大原則是「衝刺」(Sprint)內的「衝刺待辦清單」(Sprint Backlog)不改變，但有原則就有例外。
 
 ##### 每日站立會議
-「每日站立會議」(Daily Scrum)每天10–15分鐘不能超時，目的是讓團隊資訊同步，一定要站著罰站為了讓大家長話短說。
+「每日站立會議」(Daily Scrum)是每讓團隊資訊同步，會有以下規定:
+- 無論「團隊」(Team)的規模大小，會議時間不能超過10~15分鐘。
+- 要站著罰站，讓大家長話短說。
+- 歡迎任何人加入
+- 只有「開發團隊」(Dev Team, Development Team)的成員可以發言。
+- 應在固定時間地點。
+
+「開發團隊」(Dev Team, Development Team)的各成員會有以下發言:
+1. 昨天完成哪些工作?
+2. 今天要完成哪些工作?
+3. 是否遇到困難、問題或挑戰，「Scrum專家」(SM, ScrumMaster)則負責記錄。
 
 ##### 衝刺規劃會議
 「衝刺規劃會議」(Sprint Planning)是指「衝刺」(Sprint)開始時，討論一下這個「衝刺」(Sprint)團隊可以交付哪些「項目」(Item)。  
@@ -120,13 +130,13 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「項目」(Item)優先順序「產品負責人」(PO, Product Owner)決定，要選多少「項目」(Item)由「開發團隊」(Dev Team)決定。
 
 ##### 產品待辦清單精煉會議
-「產品待辦清單精煉會議」(Product Backlog Refinement / PBR)是「產品負責人」(PO, Product Owner)跟Team一起討論近期內會開始施工的「項目」(Item)，主要是從商業和使用者角度切入，盡可能不觸及技術細節。
+「產品待辦清單精煉會議」(PBR, Product Backlog Refinement)是「產品負責人」(PO, Product Owner)跟「團隊」(Team)一起討論近期內會開始施工的「項目」(Item)，主要是從商業和使用者角度切入，盡可能不觸及技術細節。
 
 ##### 衝刺檢視會議
-「衝刺檢視會議」(Sprint Review)是指「衝刺」(Sprint)結束時針對產品的會議，PO邀請利害關係人對產出給意見，是要可用的軟體才算產出。不準備PowerPoint或其他簡報，單純就軟體操作取得回饋。
+「衝刺檢視會議」(Sprint Review)是指「衝刺」(Sprint)結束時針對產品的會議，「產品負責人」(PO, Product Owner)邀請利害關係人對產出給意見，是要可用的軟體才算產出。不準備PowerPoint或其他簡報，單純就軟體操作取得回饋。
 
 ##### 衝刺回顧會議
-Sprint Retrospective / Sprint Retro（衝刺回顧會議）我偏好稱這一項為「自省」會議。在Sprint Review後，Scrum Team成員（Dev Team或包含PO）針對這個Sprint團隊的工作模式討論改善，並定出下個Sprint改善事項。為了創造一個安全的環境，原則上只有團隊成員才能參加。
+「衝刺回顧會議」(Sprint Retrospective或 Sprint Retro)我偏好稱這一項為「自省」會議。在Sprint Review後，Scrum Team成員（Dev Team或包含PO）針對這個Sprint團隊的工作模式討論改善，並定出下個Sprint改善事項。為了創造一個安全的環境，原則上只有團隊成員才能參加。
 
 ### DevOps
 「開發與運維」(DevOps, Development Operations)是一個開發軟體的流程，理念是將軟體開發專注於 **開發與運作維護** ，是目前Azure、GitHub與Google等都有支持的模式，Windows10的開發也是依照這個做出開發。  
