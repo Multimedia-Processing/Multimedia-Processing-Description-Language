@@ -57,7 +57,7 @@ Git版本控制是一個管理程式碼版本的分散式管理系統，以分�
 此軟體的想法來自於Linux之父，目的就是來自於當時全世界都在開發Linux的系統內核，大量的人開發者參與其中，因此需要一個並非是集中式管理機制來解決程式衝突的問題，此機制儼然而生。
 
 ## 敏捷軟體開發解決方案
-在「敏捷軟體開發宣言」而提出的解決方案Scrum模式，其中使用了「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)這兩項核心與技術來實現Scrum，達到程式開發的快速迭代、更新與自動化。  
+在「敏捷軟體開發宣言」而提出的解決方案Scrum模式，其中使用了「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)這兩項核心與技術來實現Scrum，達到程式開發的快速迭代、更新與自動化，是目前Azure、GitHub與Google等都有運作的模式。  
 
 ### Scrum
 有人於1990年左右提出提出了Scrum，核心思想就是「全體一起前進，把求傳來傳去」，其中的概念來自於橄欖球，橄欖球中不同的角色與職位在各階段的互相重疊完成。  
@@ -94,7 +94,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「衝刺待辦清單」(Sprint Backlog)是「開發團隊」向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。
 
 ##### 潛在可交付產品增量
-「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是PO說要上線就可以馬上上線的東西才算數。
+「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是「產品負責人」(PO, Product Owner)說要上線就可以馬上上線的東西才算數。
 
 ##### 燃盡圖
 「燃盡圖」(Burndown Chart)是一個公開展示的圖表，顯示當前「衝刺」(Sprint)中未完成的「任務」(Task)數目，或在「衝刺待辦清單」(Sprint Backlog)上未完成的「項目」(Item)數目。  
@@ -115,14 +115,16 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「每日站立會議」(Daily Scrum)是每讓團隊資訊同步，會有以下規定:
 - 無論「團隊」(Team)的規模大小，會議時間不能超過10~15分鐘。
 - 要站著罰站，讓大家長話短說。
-- 歡迎任何人加入
+- 歡迎任何人加入。
 - 只有「開發團隊」(Dev Team, Development Team)的成員可以發言。
 - 應在固定時間地點。
 
 「開發團隊」(Dev Team, Development Team)的各成員會有以下發言:
 1. 昨天完成哪些工作?
 2. 今天要完成哪些工作?
-3. 是否遇到困難、問題或挑戰，「Scrum專家」(SM, ScrumMaster)則負責記錄。
+3. 是否遇到困難、問題或挑戰?
+
+「Scrum專家」(SM, ScrumMaster)則負責記錄「開發團隊」(Dev Team, Development Team)遇到的問題。
 
 ##### 衝刺規劃會議
 「衝刺規劃會議」(Sprint Planning)是指「衝刺」(Sprint)開始時，討論一下這個「衝刺」(Sprint)團隊可以交付哪些「項目」(Item)。  
@@ -133,15 +135,19 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「產品待辦清單精煉會議」(PBR, Product Backlog Refinement)是「產品負責人」(PO, Product Owner)跟「團隊」(Team)一起討論近期內會開始施工的「項目」(Item)，主要是從商業和使用者角度切入，盡可能不觸及技術細節。
 
 ##### 衝刺檢視會議
-「衝刺檢視會議」(Sprint Review)是指「衝刺」(Sprint)結束時針對產品的會議，「產品負責人」(PO, Product Owner)邀請利害關係人對產出給意見，是要可用的軟體才算產出。不準備PowerPoint或其他簡報，單純就軟體操作取得回饋。
+「衝刺檢視會議」(Sprint Review)是指「衝刺」(Sprint)結束時針對產品的會議，「產品負責人」(PO, Product Owner)邀請用戶、相關利益者以及經理等相關人員，對目前的進度給意見，是要可用的軟體才算產出。  
+
+不準備PowerPoint或其他簡報，單純就軟體操作或者成果取得回饋。
 
 ##### 衝刺回顧會議
-「衝刺回顧會議」(Sprint Retrospective或 Sprint Retro)我偏好稱這一項為「自省」會議。在Sprint Review後，Scrum Team成員（Dev Team或包含PO）針對這個Sprint團隊的工作模式討論改善，並定出下個Sprint改善事項。為了創造一個安全的環境，原則上只有團隊成員才能參加。
+「衝刺回顧會議」(Sprint Retrospective)也稱作為Sprint Retro，也可以稱為「自省」會議，會議時間限制4小時內。  
+
+在「衝刺檢視會議」(Sprint Review)取得後，「Scrum團隊」(Scrum Team)所有成員針對這個「衝刺」(Sprint)中團隊的工作模式討論與改善，並定出下個「衝刺」(Sprint)改善事項。
+
+為了創造一個安全的環境，原則上只有「Scrum團隊」(Scrum Team)成員才能參加。
 
 ### DevOps
-「開發與運維」(DevOps, Development Operations)是一個開發軟體的流程，理念是將軟體開發專注於 **開發與運作維護** ，是目前Azure、GitHub與Google等都有支持的模式，Windows10的開發也是依照這個做出開發。  
-
-DevOps是將核心理念專注在開發與維護運作，
+「開發與運維」(DevOps, Development Operations)是一個開發軟體的流程，理念是將軟體開發專注於 **開發與運作維護** 。  
 
 因此在DevOps的開發流程中開發人員專注於依照需求開發、撰寫程式與加入功能，維護與運作人員則專注在維護系統、除錯與修正錯誤，而調查、分析、系統架構、除錯與發佈則大部分交給社群、框架、規範、電腦以及少部份的人。  
 
@@ -302,3 +308,9 @@ https://zh.wikipedia.org/wiki/Scrum
 https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91  
 https://zh.wikipedia.org/wiki/%E7%87%83%E5%B0%BD%E5%9B%BE  
 https://zh.wikipedia.org/wiki/%E6%8C%A3%E5%80%BC%E7%AE%A1%E7%90%86  
+https://aws.amazon.com/tw/devops/what-is-devops/  
+https://zh.m.wikipedia.org/zh-tw/DevOps  
+https://ithelp.ithome.com.tw/m/articles/10184557  
+https://www.ithome.com.tw/news/96861  
+https://kojenchieh.pixnet.net/blog/post/434643017  
+https://azure.microsoft.com/zh-tw/overview/what-is-devops/  
