@@ -44,25 +44,29 @@ MPDL是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分�
 - 最佳的架構、需求與設計皆來自於能自我組織的團隊。
 - 團隊定期自省如何更有效率，並據之適當地調整與修正自己的行為。
 
-### 條件
-簡單來說達到「敏捷軟體開發宣言」如下:
+### 目的
+簡單來說「敏捷軟體開發宣言」目的如下:
 - 積極與樂於改變的態度，以客戶的利益為出發點，盡力做出可用的軟體。
 - 天天面對面與人互動，重視團隊成功重於個人成功。
 - 持續且短時間交付產品，並能持續追求優越技術與優良設計。
 - 定期自我反省並實際做出改善。
 
 ## Git版本控制
-Git版本控制是一個管理程式碼版本的分散式管理系統，以分散式管控、大型的多人協作最為重要，其中軟體到核心概念是「合併」(Merge)，紀錄版本的方式以觀察檔案內容變化而非目錄與檔名變化。  
+Git版本控制是一個「分散式版本控管系統」(DVCS; Distributed Version Control System)[?]，以分散式管控、大型的多人協作最為重要，其中軟體到核心概念是「合併」(Merge)，紀錄版本的方式以觀察檔案內容變化而非目錄與檔名變化。  
 
 此軟體的想法來自於Linux之父，目的就是來自於當時全世界都在開發Linux的系統內核，大量的人開發者參與其中，因此需要一個並非是集中式管理機制來解決程式衝突的問題，此機制儼然而生。
 
 ## 敏捷軟體開發解決方案
-在「敏捷軟體開發宣言」而提出的解決方案Scrum模式，其中使用了「開發與運維」(DevOps, Development Operations)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)這兩項核心與技術來實現Scrum，達到程式開發的快速迭代、更新與自動化，是目前Azure、GitHub與Google等都有運作的模式。  
+隨著「敏捷軟體開發宣言」的發佈後的興起與流傳，其中符合「敏捷軟體開發宣言」的Scrum模式因為易學簡單而快速流通，軟體開發的文化也持續改變。  
+
+雖然「開發」得以解決，但卻在「運維」這方面遇到了卡關，因為大多公司賣的不是軟體而是軟體產生的服務，使得系統在開發、更新與安全、可靠性上遇到了衝突，因此整體系統的開發、測試、維護便成為三方面的衝突與隔閡。  
+
+因此有人提出了「開發與運維」(DevOps, Development Operations)這項概念，透過文化、實務與工具來解決三方的隔閡，達到程式開發的快速迭代、更新與自動化，目前Microsoft、GitHub、GitLab與Google等著名的大型企業都在運作的模式，並且世界各地也持續舉辦DevOpsDay[?]。  
 
 ### Scrum
 有人於1990年左右提出提出了Scrum，核心思想就是「全體一起前進，把求傳來傳去」，其中的概念來自於橄欖球，橄欖球中不同的角色與職位在各階段的互相重疊完成。  
 
-此方式將過去瀑布式開發流程:需求規格、系統分析、系統設計、實作、測試、部署與維護，必須依照這個開發，當有問題時就會往後一步驟重新來，瀑布式開發流程造成開發過程無法快速應變需求與改變，在Scrum的概念出現後狀況得以改變，這個想法也剛好很符合「敏敏捷軟體開發宣言」所提到的訴求與想法。  
+此方式將過去「瀑布式開發流程」:需求規格、系統分析、系統設計、實作、測試、部署與維護，必須依照這個開發，當有問題時就會往後一步驟重新來，瀑布式開發流程造成開發過程無法快速應變需求與改變，在Scrum的概念出現後狀況得以改變，這個想法也剛好很符合「敏敏捷軟體開發宣言」所提到的訴求與想法。  
 
 #### 角色
 Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產品負責人」(PO, Product Owner)、「Scrum專家」(SM, ScrumMaster)，開發團隊負責產生內容，產品負責人負責修正與想出內容的方向，而Scrum專家類似於教練與輔導員的角色，我們稱三者組成的團隊或組織叫做「Scrum團隊」(Scrum Team)或者「團隊」(Team)，如下做詳細解說。  
@@ -83,7 +87,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「項目」(Item)，也稱作為「描述」(Story)，是產品負責人定義的，「項目」(Item)的大小要剛好可以團隊在平常可以完成3~5個，太多太繁雜，太少沒做完感覺沒有用，都會打擊團隊。
 
 ##### 任務
-「任務」(Task)是「開發團隊」(Dev Team, Development Team)針對物件所列出的任務;任務的分配是開發團隊自己分配的。
+「任務」(Task)是「開發團隊」(Dev Team, Development Team)針對物件所列出的任務;任務的分配是開發團隊自己分配的。  
 
 ##### 產品待辦清單
 「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。  
@@ -91,10 +95,10 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 內容產品負責人負責調整、製作，以「項目」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
 
 ##### 衝刺待辦清單
-「衝刺待辦清單」(Sprint Backlog)是「開發團隊」向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。
+「衝刺待辦清單」(Sprint Backlog)是「開發團隊」向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。  
 
 ##### 潛在可交付產品增量
-「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是「產品負責人」(PO, Product Owner)說要上線就可以馬上上線的東西才算數。
+「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是「產品負責人」(PO, Product Owner)說要上線就可以馬上上線的東西才算數。  
 
 ##### 燃盡圖
 「燃盡圖」(Burndown Chart)是一個公開展示的圖表，顯示當前「衝刺」(Sprint)中未完成的「任務」(Task)數目，或在「衝刺待辦清單」(Sprint Backlog)上未完成的「項目」(Item)數目。  
@@ -102,7 +106,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「燃盡圖」(Burndown Chart)在每次的「衝刺」(Sprint)中大部分時間內都維持平坦，但計畫仍然可以按照既定時間進行，也就是說盡量將工作規劃與平均分配好，但又可以完成指定的工作量。  
 
 #### 活動
-每一個活動都有其目的和「時間限制」(Time Boxed)，主要活動如下：
+以下是Scrum常見的活動，每一個活動都有其目的和「時間限制」(Time Boxed)，主要活動如下：
 
 ##### 衝刺
 「衝刺」(Sprint)是指「開發團隊」向「產品負責人」(PO, Product Owner)承諾在指定的時間內可以完成的「項目」(Item)後，就著手去想辦法在時間內完成「項目」(Item)。  
@@ -147,11 +151,17 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 為了創造一個安全的環境，原則上只有「Scrum團隊」(Scrum Team)成員才能參加。
 
 ### DevOps
-「開發與運維」(DevOps, Development Operations)是為了解決「敏捷軟體開發」中遇到的困境，透過文化、實務與工具提高「開發團隊」(Dev Team, Development Team)與「IT運維人員」之間透明度，使兩者團隊可以融合、合作、溝通與授受，來加快程式在 **開發** 、 **測試** 、**部署** 與 **維護** 的生命週期，達到快速、需求化、高品質、穩定與減少復原時間。  
+「開發與運維」(DevOps, Development Operations)是為了解決「敏捷軟體開發」中遇到的困境，透過文化、實務與工具提高「開發團隊」(Dev Team, Development Team)與「IT運維人員」之間透明度，使兩者團隊可以融合、合作、溝通與授受，來加快程式在 **開發** 、 **測試** 、**部署** 與 **維護** 的生命週期，達到快速、需求化、高品質、穩定與減少復原時間，因此會分成幾個項目:
+- 通訊與協作:「工作流程看板」(Boards)、「電子郵件」(Email)與通訊軟體等。
+- 監控和紀錄:Git、監控工具與「燃盡圖」(Burndown Chart)等。
+- 自動化程序:「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)、「管道」(Pipelines)、虛擬機器、容器技術、無伺服器運算與微型服務等。
 
-因此會分成幾個項目
+大致講解兩項，「工作流程看板」(Boards)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)。
 
-### CI/CD
+### 工作流程看板
+「工作流程看板」(Boards)
+
+### 持續整合與持續發佈
 「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)是為了可以達到專注開發與運作維護所設計的工具，利用多項的技術與工具達到靜態檢查、動態檢查、修改項目、風格化檢查、除錯等。  
 
 「持續整合」(CI, Continuous Integration)是針對Git的每一次的提交、拉請求、系統變動，能夠持續且自動地進行驗證。意思就是將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
@@ -298,7 +308,7 @@ for x in xlist:
 
 參考文獻
 ===
-https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/  
+[1][a](https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/)  
 https://tuna.to/agile-2-73856205bc9e  
 https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/  
 https://zh.wikipedia.org/wiki/Scrum  
@@ -311,4 +321,5 @@ https://ithelp.ithome.com.tw/m/articles/10184557
 https://www.ithome.com.tw/news/96861  
 https://kojenchieh.pixnet.net/blog/post/434643017  
 https://azure.microsoft.com/zh-tw/overview/what-is-devops/  
-https://ithelp.ithome.com.tw/m/articles/10184841
+https://ithelp.ithome.com.tw/m/articles/10184841  
+https://devopsdays.tw/  
