@@ -154,23 +154,25 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 「開發與運維」(DevOps, Development Operations)是為了解決「敏捷軟體開發」中遇到的困境，透過文化、實務與工具提高「開發團隊」(Dev Team, Development Team)與「IT運維人員」之間透明度，使兩者團隊可以融合、合作、溝通與授受，來加快程式在 **開發** 、 **測試** 、**部署** 與 **維護** 的生命週期，達到快速、需求化、高品質、穩定與減少復原時間，因此會分成幾個項目:
 - 通訊與協作:「工作流程看板」(Boards)、「電子郵件」(Email)與通訊軟體等。
 - 監控和紀錄:Git、監控工具與「燃盡圖」(Burndown Chart)等。
-- 自動化程序:「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)、「管道」(Pipelines)、虛擬機器、容器技術、無伺服器運算與微型服務等。
+- 自動化程序:「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)、「持續部署」(Continous Deployment)、「管道」(Pipelines)、虛擬機器、容器技術、無伺服器運算與微型服務等。
 
 後續為了實際相關的內容，因此將講解自動化程序中一項重要的技術，「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)。
 
 ### 持續整合與持續發佈
-「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)的目的是為了可以 **持續的驗證系統開發結果** ，經由「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)盡量將每一次小變更正確，都可以更接近需求、產出改進、減少人力與減少積少成多的錯誤，可以達到專注開發與運作維護所設計的工具，。  
+「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)的目的是為了可以 **持續的驗證系統開發結果** ，經由「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)盡量確保每一次小變更正確，讓最後的產品可以更接近需求、產出改進、減少人力與減少重大錯誤，最終達到專注開發、測試與運維。  
 
 #### 持續整合
 「持續整合」(CI, Continuous Integration)是針對Git的每一次的提交、拉請求、系統變動，能夠持續且自動地進行驗證，將檢查的人力做最小化或簡單化，讓開發、測試與佈署之間可以透明。  
 
-利用多項的技術與工具達到靜態檢查、動態檢查、修改項目、風格化檢查、除錯等
+其中將開發環境、修改項目、套件函式庫檢查、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，減少人力達到專注、快速與減少錯誤。  
 
-其中將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
+#### 持續發佈
+「持續發佈」(CD, Continuous Delivery)是一切的最終目的，就是讓客戶或者使用者可以用到產品。  
 
-持續發佈就是在上述都達到與通過後，自動化的發佈不同版本、平台與系統，讓人們在使用上可以有一定的程度上有品質。
+在上述都達到與通過後，自動化的發佈不同版本、平台與系統，讓人們在使用上可以享有快速、持續更新、接近使用者與有品質的程式。
 
-因此在DevOps與CI/CD的融合與貫通，達到了現在可以達到敏捷軟體開發宣言，從而減少開發週期並因應需求
+### 總結
+其實說了這麼多，最終的重點就是做出一個令客戶或者使用者滿意的軟體，上述這些只是可以接近目的的一個方法，但也是剛好一切的發展過程剛好造就了這歷史，開發者、Git、敏捷、Scrum、DevOps。
 
 ## 融合
 將上述技術做融合，已達到新的多媒體製作解決方案。
@@ -310,18 +312,25 @@ for x in xlist:
 
 參考文獻
 ===
-[1][a](https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/)  
-https://tuna.to/agile-2-73856205bc9e  
-https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/  
-https://zh.wikipedia.org/wiki/Scrum  
-https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91  
-https://zh.wikipedia.org/wiki/%E7%87%83%E5%B0%BD%E5%9B%BE  
-https://zh.wikipedia.org/wiki/%E6%8C%A3%E5%80%BC%E7%AE%A1%E7%90%86  
-https://aws.amazon.com/tw/devops/what-is-devops/  
-https://zh.m.wikipedia.org/zh-tw/DevOps  
-https://ithelp.ithome.com.tw/m/articles/10184557  
-https://www.ithome.com.tw/news/96861  
-https://kojenchieh.pixnet.net/blog/post/434643017  
-https://azure.microsoft.com/zh-tw/overview/what-is-devops/  
-https://ithelp.ithome.com.tw/m/articles/10184841  
-https://devopsdays.tw/  
+[?]作者，譯者，出版年月份，〈書目、篇名〉，《技術資料、期刊名稱、書名》，版序、卷冊，頁碼，出版社。  
+[?] 名字(中間名)姓. 譯者. YYYYMM. 英文書目、篇名. 英文技術資料、期刊名稱、書名. 版序、卷冊. 頁碼. 出版社.  
+
+[1] [Yves Lin，2015/5/27，Scrum 不包生導入指南，Scrum入門簡介。](https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/)  
+[2] [Yves Lin，2015/6/27，Scrum 懶人包 – 10分鐘讀懂 Scrum Agile 敏捷軟體開發專案入門（含中文英文名詞對照），Scrum入門簡介。](https://funevo.com/2015/06/27/scrum-agile-project-management-software-development/)  
+[3] [Yves Lin，2015/6/6，雞犬升天 – Scrum適合所有人嗎？，敏捷開發求生指南。](https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/)  
+[4] [維基媒體基金會，2019/8/11，Scrum，維基媒體基金會。](https://zh.wikipedia.org/wiki/Scrum)  
+[5] [維基媒體基金會，2019/7/21，敏捷軟體開發，維基媒體基金會。](https://zh.wikipedia.org/wiki/%E6%95%8F%E6%8D%B7%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91)  
+[6] [維基媒體基金會，2018/1/10，燃盡圖，維基媒體基金會。](https://zh.wikipedia.org/wiki/%E7%87%83%E5%B0%BD%E5%9B%BE)  
+[7] [維基媒體基金會，2019/7/24，掙值管理，維基媒體基金會。](https://zh.wikipedia.org/wiki/%E6%8C%A3%E5%80%BC%E7%AE%A1%E7%90%86)  
+[] [2019, Amazon Web Services, Inc.，什麼是 DevOps？，2019, Amazon Web Services, Inc.。](https://aws.amazon.com/tw/devops/what-is-devops/)  
+[] [維基媒體基金會，2018/11/30，DevOps，維基媒體基金會。](https://zh.wikipedia.org/zh-tw/DevOps)  
+[] [Miles，2016-12-01，什麼是 DevOps ？，CI 從入門到入坑，電週文化事業股份有限公司。](https://ithelp.ithome.com.tw/articles/10184557)  
+[] [王立恒，2015/6/23，為什麼會出現DevOps？，電週文化事業股份有限公司。](https://www.ithome.com.tw/news/96861)  
+[] [David Ko，David Ko的學習之旅
+，Devops 常見的迷思，PIXNET](https://kojenchieh.pixnet.net/blog/post/434643017)  
+[] [2019 Microsoft，什麼是 DevOps？，2019 Microsoft。](https://azure.microsoft.com/zh-tw/overview/what-is-devops/)  
+[] [Miles，2016/12/2，還記得第一次寫程式嗎？，CI 從入門到入坑，電週文化事業股份有限公司。](https://ithelp.ithome.com.tw/articles/10184841)  
+[] [DevOpsDay](https://devopsdays.tw/)  
+[] [Bear熊
+，2017/5/3，什麼是 CI / CD ?，Medium。](https://medium.com/@william456821/%E4%BB%80%E9%BA%BC%E6%98%AF-ci-cd-72bd5ae571f1)  
+[] [山姆鍋，2013/10/8，山姆鍋對持續整合、持續部署、持續交付的定義，software-development，samkuo。](https://samkuo.me/post/2013/10/continuous-integration-deployment-delivery/  
