@@ -156,15 +156,17 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 - 監控和紀錄:Git、監控工具與「燃盡圖」(Burndown Chart)等。
 - 自動化程序:「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)、「管道」(Pipelines)、虛擬機器、容器技術、無伺服器運算與微型服務等。
 
-大致講解兩項，「工作流程看板」(Boards)、「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)。
-
-### 工作流程看板
-「工作流程看板」(Boards)
+後續為了實際相關的內容，因此將講解自動化程序中一項重要的技術，「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)。
 
 ### 持續整合與持續發佈
-「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)是為了可以達到專注開發與運作維護所設計的工具，利用多項的技術與工具達到靜態檢查、動態檢查、修改項目、風格化檢查、除錯等。  
+「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)的目的是為了可以 **持續的驗證系統開發結果** ，經由「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)盡量將每一次小變更正確，都可以更接近需求、產出改進、減少人力與減少積少成多的錯誤，可以達到專注開發與運作維護所設計的工具，。  
 
-「持續整合」(CI, Continuous Integration)是針對Git的每一次的提交、拉請求、系統變動，能夠持續且自動地進行驗證。意思就是將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
+#### 持續整合
+「持續整合」(CI, Continuous Integration)是針對Git的每一次的提交、拉請求、系統變動，能夠持續且自動地進行驗證，將檢查的人力做最小化或簡單化，讓開發、測試與佈署之間可以透明。  
+
+利用多項的技術與工具達到靜態檢查、動態檢查、修改項目、風格化檢查、除錯等
+
+其中將開發環境、修改項目、靜態檢查、動態檢查、風格化檢查與相依性檢查等不斷的整合，達到最佳的工作流程，減少人力參與，達到專注、快速與減少錯誤。  
 
 持續發佈就是在上述都達到與通過後，自動化的發佈不同版本、平台與系統，讓人們在使用上可以有一定的程度上有品質。
 
