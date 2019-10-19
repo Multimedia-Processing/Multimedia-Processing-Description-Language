@@ -1,18 +1,21 @@
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)
-===
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 的製作模式，將多媒體處理方式劃分成素材、規劃與處理三項元素融合製作而成，但以程式腳本的方式描述多媒體產生的方式。
+# 多媒體處理描述語言
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 的製作模式，當初這個是為了影片製作所撰寫，希望影片可以快速且有效率的製作出來。  
 
-核心
-===
-MPDL是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制** 、 **「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+後來經過深思其實其他的媒體或專頁也應當放入在這語言裡面，因為影片是媒體中的精髓，影片結合不同領域的藝術、技術、美學以及各行各業的專業，因此影片其實也是最難保存的一種媒體。  
+
+這些不同的領域都是一個影片組成的基石，是不可不存在的重要內容，因此期望未來「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)可以朝著「跨媒體」的方向前進，讓不同領域的人可以彼此合作達到綜效統合的效果。  
+
+# 核心
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制** 、 **「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
 「多媒體」(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
+
 多媒體從字面上來看，就是「多」(Multi)和「媒體」(Media)的結合。  
 
 其中「媒體」(medium)一詞來自於拉丁文「medius」一字，為「中介的」、「中間的」意思。韋伯字典中「medium」一詞之義為「立於中間或中介的某種東西」。因此，人與人之間所賴以溝通的觀念、思想或意見的中介物便可稱之為媒體。  
 
-媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的「媒體如文字」(text)、「圖片」(picture)、「圖形」(graphic)、「影像」(image)、「影片」(video)、「動畫」(animation)、「音樂」(music)、「聲音」(sound)等[3]。  
+媒體是一種傳播資訊的媒介，所以多媒體最基本的解釋應該是「結合多種傳播資訊媒介的媒體」，而「多」媒體的「多」字，包含的媒體如「文字」(text)、「圖片」(picture)、「圖形」(graphic)、「影像」(image)、「影片」(video)、「動畫」(animation)、「音樂」(music)、「聲音」(sound)等[?]。  
 
 ## 敏捷軟體開發宣言
 「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)是為了解決瀑布式開發模式無法面對現在快速的需求變化而發展出的模式，其中做著名的方式就是Scrum模式，針對Scrum模式而設計的解決方案如DevOps、CI/CD等，已經被微軟、GitHub與Google等所支持。
@@ -177,49 +180,24 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 ## 融合
 將上述技術做融合，已達到新的多媒體製作解決方案。
 
-語法概念
-===
-語法靈感來自Python，因此如果熟悉Python會輕鬆使用，三項元素分別是:
+# 語法概念
+語法靈感來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別。  
 
-1. 規劃  
-  影片製作的流程與工作項目，如下常見的流程:
-    - 前期製作
-    - 劇本
-    - 腳本
-    - 分鏡
-    - 運鏡
-    - 後製
-    - 殺青  
-    - 翻譯
-    - 授權  
-    - 販賣
-    ...
+運作原則:
+- 輸出的結果是將不同的「物件」一層一層堆疊在一個框架內。
+- 「物件」的「型態」是定義於「類別」。
+- 「物件」的「函式」稱為「方法」。
+- 「方法」只能被指定的「物件」所使用。
 
-1. 素材  
-  製作影片的材料，也就是將多媒體的種類、規格、規範等描述出來，如下常見的媒體:
-    - 文字
-    - 圖片
-    - 圖形
-    - 影像
-    - 影片
-    - 動畫
-    - 音樂
-    - 音效  
-    ...
+媒體製作中「素材」、「規劃」與「處理」是三項基本型態，這些「型態」可以對應以下基本流程:
 
-2. 處理  
-  多媒體經過處理產生影片，如下常見處理方式:
-    - 剪輯
-    - 特效
-    - 合成
-    - 字幕
-    - 轉場  
-    - 翻譯
-    - 字幕  
-    ...
+```
+不同的「素材」在「規劃」的限制下經過「處理」所產生的成果。
+```
 
-語法
-===
+除了上述基本流程，可以自定義流程、方法或者敘述。
+
+# 語法
 ## 匯入素材、特效、合成
 匯入素材的方式必須以SHA3或SHA2先將數位檔案經過雜湊後產生對應的數位指紋來對應所要的素材，會有一個檔案紀錄雜湊值對應的檔案，名稱不限制。
 ```
@@ -234,33 +212,6 @@ import hash_vlue
 - `./file_directory/file_directory` = `.file_directory.file_directory`  
 - `../file_directory` = `..file_directory`
 - `../file_directory/file_directory` = `..file_directory.file_directory`
-
-
-## 軌道
-定義軌道，
-```
-track(sequence):
-    track()
-```
-## 素材設定
-```
-clip()
-```
-
-## 特效
-```
-effects()
-```
-
-## 合成
-```
-composite()
-```
-
-## 輸出
-```
-export(export_movie_settings)
-```
 
 ## 運算
 ### 布林運算
@@ -310,11 +261,76 @@ for x in xlist:
     track(x)
 ```
 
-參考文獻
-===
-[?]作者，譯者，出版年月份，〈書目、篇名〉，《技術資料、期刊名稱、書名》，版序、卷冊，頁碼，出版社。  
-[?] 名字(中間名)姓. 譯者. YYYYMM. 英文書目、篇名. 英文技術資料、期刊名稱、書名. 版序、卷冊. 頁碼. 出版社.  
 
+## 影片
+影片使用剪輯軟體中使用方式與呈現作為以下語法的操作參考與使用，「規劃」被劃分在「素材」的產生方式、製作流程、工作內容、方法等；「素材」則被劃分在原始的影片、圖片、聲音或其他媒體；「處理」則是劃分在如何處理原始的「素材」並輸出，符合基本流程。  
+
+會依照三種「型態」:「素材」、「規劃」與「處理」做出不同「物件」與「方法」，以下是針對影片在不同「型態」中定義的「物件」與「方法」:
+
+1. 規劃  
+    影片製作的流程與工作項目，如下常見的流程:
+    - 前期製作
+    - 劇本
+    - 腳本
+    - 分鏡
+    - 運鏡
+    - 後製
+    - 殺青  
+    - 翻譯
+    - 授權  
+    - 販賣
+    ...
+
+1. 素材  
+  製作影片的材料，也就是將多媒體的種類、規格、規範等描述出來，如下常見的媒體:
+    - 文字
+    - 圖片
+    - 圖形
+    - 影像
+    - 影片
+    - 動畫
+    - 音樂
+    - 音效  
+    ...
+
+2. 處理  
+  多媒體經過處理產生影片，如下常見處理方式:
+    - 剪輯
+    - 特效
+    - 合成
+    - 字幕
+    - 轉場  
+    - 翻譯
+    - 字幕  
+    ...
+
+### 軌道
+定義軌道，
+```
+track(sequence):
+    track()
+```
+### 素材設定
+```
+clip()
+```
+
+### 特效
+```
+effects()
+```
+
+### 合成
+```
+composite()
+```
+
+### 輸出
+```
+export(export_movie_settings)
+```
+
+# 參考文獻
 [1] [Yves Lin，2015/5/27，Scrum 不包生導入指南，Scrum入門簡介。](https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/)  
 [2] [Yves Lin，2015/6/27，Scrum 懶人包 – 10分鐘讀懂 Scrum Agile 敏捷軟體開發專案入門（含中文英文名詞對照），Scrum入門簡介。](https://funevo.com/2015/06/27/scrum-agile-project-management-software-development/)  
 [3] [Yves Lin，2015/6/6，雞犬升天 – Scrum適合所有人嗎？，敏捷開發求生指南。](https://funevo.com/2015/06/06/scrum-shi-he-shui-for-who/)  
