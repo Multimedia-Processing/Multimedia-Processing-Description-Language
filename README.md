@@ -349,4 +349,4 @@ export(export_movie_settings)
 [] [DevOpsDay](https://devopsdays.tw/)  
 [] [Bear熊
 ，2017/5/3，什麼是 CI / CD ?，Medium。](https://medium.com/@william456821/%E4%BB%80%E9%BA%BC%E6%98%AF-ci-cd-72bd5ae571f1)  
-[] [山姆鍋，2013/10/8，山姆鍋對持續整合、持續部署、持續交付的定義，software-development，samkuo。](https://samkuo.me/post/2013/10/continuous-integration-deployment-delivery/  
+[] [山姆鍋，2013/10/8，山姆鍋對持續整合、持續部署、持續交付的定義，software-development，samkuo。](https://samkuo.me/post/2013/10/continuous-integration-deployment-delivery/)  
