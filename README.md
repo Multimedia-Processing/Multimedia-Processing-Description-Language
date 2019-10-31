@@ -1,12 +1,15 @@
 # 多媒體處理描述語言
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 的製作模式，當初這個是為了影片製作所撰寫，希望影片可以快速且有效率的製作出來。  
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現大型多人協作的影片製作，當初為了影片製作所撰寫，希望可以在很多人的共同努力下快速且有效率的製作出來。  
 
 後來經過深思其實其他的媒體或專頁也應當放入在這語言裡面，因為影片是媒體中的精髓，影片結合不同領域的藝術、技術、美學以及各行各業的專業，因此影片其實也是最難保存的一種媒體。  
+
+Linux之父講過的話
+> 
 
 這些不同的領域都是一個影片組成的基石，是不可不存在的重要內容，因此期望未來「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)可以朝著「跨媒體」的方向前進，讓不同領域的人可以彼此合作達到綜效統合的效果。  
 
 # 核心
-「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **分散式版本控制** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制** 、 **「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
+「多媒體處理描述語言」(MPDL, Multimedia Processing Description Language)是為了實現將 **多媒體** 、 **敏捷軟體開發宣言** 、 **「分散式版本控管系統」(DVCS; Distributed Version Control System)** 與 **敏捷軟體開發解決方案** 融合的語言，也就是將 **「多媒體」(Multimedia)** 、 **「[敏捷軟體開發宣言](https://agilemanifesto.org/iso/zhcht/manifesto.html)」(Manifesto for Agile Software Development)** 、**Scrum**、 **Git版本控制** 、 **「開發與運維」(DevOps, Development Operations)** 、 **「持續整合與持續發佈」(CI/CD, Continuous Integration / Continuous Delivery)** 等多種概念與技術融合，為了達到創新融合各項技術的「多媒體製作解決方案」，達到多媒體可以不斷的製作、修正的循環，以下依序講解所提到的專有名詞並最後講解如何融合。  
 
 ## 多媒體
 「多媒體」(Multimedia)一詞出現在 1950 年代，由於每個時代的環境不同，所以對於多媒體的解釋也有些許差別。  
@@ -178,7 +181,18 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 其實說了這麼多，最終的重點就是做出一個令客戶或者使用者滿意的軟體，上述這些只是可以接近目的的一個方法，但也是剛好一切的發展過程剛好造就了這歷史，開發者、Git、敏捷、Scrum、DevOps。
 
 ## 融合
-將上述技術做融合，已達到新的多媒體製作解決方案。
+為了可以達到初衷的想法:
+
+> 大型的多人協作
+
+我們將上述 **多媒體** 、 **敏捷軟體開發宣言** 、 **「分散式版本控管系統」(DVCS; Distributed Version Control System)** 與 **敏捷軟體開發解決方案** 等作融合，簡單說明解釋就是快速適應、多人協作、版本紀錄與自動化等方式達到快速製作多媒體，將上述技術做融合，已達到新的多媒體製作解決方案。
+
+經典電影快速翻拍
+
+版本電影
+
+版本影片
+
 
 # 語法概念
 語法靈感來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別。  
@@ -191,9 +205,8 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 
 媒體製作中「素材」、「規劃」與「處理」是三項基本型態，這些「型態」可以對應以下基本流程:
 
-```
-不同的「素材」在「規劃」的限制下經過「處理」所產生的成果。
-```
+
+> 不同的「素材」在「規劃」的限制下經過「處理」所產生的成果。
 
 除了上述基本流程，可以自定義流程、方法或者敘述。
 
