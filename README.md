@@ -400,20 +400,43 @@ b.track(2)
 export(export_movie_settings)
 ```
 
-因此軌道優先於軌道上的素材，當素材的長度超過軌道時間長度時，素材的時間長度會被限制在軌道內。
-
 ```
-from . import aaaaaa
+from . import aaaaaa as a
+from . import bbbbbb as b
 
-aaaaaa.track()
+track(1)
+    a.clip()
+    b.clip()
+
+b.track(2)
 
 export(export_movie_settings)
 ```
 
-### 素材設定
+因此軌道優先於軌道上的素材，當素材的長度超過軌道時間長度時，素材的時間長度會被限制在軌道內。
+
 ```
-clip()
+from . import cccccc as c
+
+c.track()
+
+export(export_movie_settings)
 ```
+
+### 影片分割
+```
+clip(sequence=1, ss=Mine, t=None, to=None, high, with)
+```
+
+如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須將軌道當作方法。
+
+
+
+影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但不能是相同時間開始與結束。
+
+
+
+但可以透過2~n個軌道讓時間重疊處。
 
 ### 特效
 ```
