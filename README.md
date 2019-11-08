@@ -334,7 +334,7 @@ for x in xlist:
 ```
 
 ## 影片
-MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)，除了上述也針對流程有以下見解。
+MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html)，除了上述也針對流程有以下見解。
 
 影片製作流程分三項基本型態:「素材」、「規劃」與「處理」，「規劃」被劃分在「素材」的產生方式、製作流程、工作內容、方法等；「素材」則被劃分在原始的影片、圖片、聲音或其他媒體；「處理」則是劃分在如何處理原始的「素材」並輸出，符合基本流程。  
 
@@ -388,7 +388,7 @@ MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像
 track(sequence=1, to=None)
 ```
 
-「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指FFmpeg所提到「串流」(Stream)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)。  
+「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)所提到「串流」(Stream)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)。  
 
 ```MPDL
 from . import aaaaaa as a
