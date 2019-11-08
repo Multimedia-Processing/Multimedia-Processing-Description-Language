@@ -237,7 +237,9 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 ### 一條龍製作
 
 # 語法概念
-語法靈感來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別，Python可以在MPDL運作，但MPDL不能在Python執行。  
+語法靈感來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別，因此
+
+> Python可以在MPDL運作，但MPDL不能在Python執行。  
 
 同時建議語法使用flake8等風格化規範，讓撰寫上大家不會有誤會等問題。  
 
@@ -246,18 +248,13 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 - 「物件」的「型態」是定義於「類別」。
 - 「物件」的「函式」稱為「方法」。
 - 「方法」只能被指定的「物件」所使用。
-
-媒體製作中「素材」、「規劃」與「處理」是三項基本型態，這些「型態」可以對應以下基本流程:
-
-> 不同的「素材」在「規劃」的限制下經過「處理」所產生的成果。
-
-除了上述基本流程，可以自定義流程、方法或者敘述。
+- 物件的使用可以類似於流程一樣
 
 # 語法
 ## 匯入素材、特效、合成
 匯入素材的方式必須以SHA3或SHA2先將數位檔案經過雜湊後產生對應的數位指紋來對應所要的素材，會有一個檔案紀錄雜湊值對應的檔案，名稱不限制。  
 
-```python
+```MPDL
 from .file.directory import hash_vlue as vlase
 import hash_vlue
 ```
@@ -270,6 +267,7 @@ import hash_vlue
 - `../file_directory` = `..file_directory`
 - `../file_directory/file_directory` = `..file_directory.file_directory`
 
+使用注意事項:
 - 可連結媒體資料庫
 - 可以使用遠端，也可以使用本地
 - 原始多媒體素材匯入必須是雜湊值，但可以使用`as`改成自己易懂的名稱
@@ -278,7 +276,13 @@ import hash_vlue
 - 可以使用匯入已經是結果的素材，也就是使用語言製作的影片再次匯入，但影片是並未成形的。
 - 可以利用影片內再分類別
 - 雖然未限制大小寫，但素材是以雜湊值匯入者建議使用小寫
+- 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。
 
+```MPDL
+from . import aabbcc as abc
+
+abc(sequence=1, t=None, 1080, 1920)
+```
 
 ## 運算
 ### 布林運算
@@ -286,6 +290,7 @@ import hash_vlue
 True
 False
 ```
+
 ### 數學運算
 ```
 +
@@ -328,9 +333,16 @@ for x in xlist:
     track(x)
 ```
 
-
 ## 影片
-影片使用剪輯軟體中使用方式與呈現作為以下語法的操作參考與使用，「規劃」被劃分在「素材」的產生方式、製作流程、工作內容、方法等；「素材」則被劃分在原始的影片、圖片、聲音或其他媒體；「處理」則是劃分在如何處理原始的「素材」並輸出，符合基本流程。  
+MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)，除了上述也針對流程有以下見解。
+
+影片製作流程分三項基本型態:「素材」、「規劃」與「處理」，「規劃」被劃分在「素材」的產生方式、製作流程、工作內容、方法等；「素材」則被劃分在原始的影片、圖片、聲音或其他媒體；「處理」則是劃分在如何處理原始的「素材」並輸出，符合基本流程。  
+
+這些「型態」可以對應以下基本流程:
+
+> 不同的「素材」在「規劃」的限制下經過「處理」所產生的成果。  
+
+> 除了上述基本流程，可以自定義流程、方法或者敘述。  
 
 會依照三種「型態」:「素材」、「規劃」與「處理」做出不同「物件」與「方法」，以下是針對影片在不同「型態」中定義的「物件」與「方法」:
 
@@ -376,39 +388,40 @@ for x in xlist:
 track(sequence=1, to=None)
 ```
 
-軌道用於製作影片時用於疊加使用的素材，軌道數字越大可以優先覆蓋數字排序較小的軌道。  
+「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指FFmpeg所提到「串流」(Stream)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)。  
 
-```
+```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
 
-a.track(1)
-b.track(2)
+composite()
+    track(1)
+        a.clip(sequence=1, ss=0, t=9)
+        b.clip(sequence=2, ss=10, t=19)
+
+    track(2)
+        a.clip(sequence=1, ss=20, t=25)
+        b.clip(sequence=2, ss=30, t=39)
 
 export(export_movie_settings)
 ```
 
-軌道以無限時間長度做定義，當然你也可以決定軌道長度，定義軌道時間長度用於直播等需要指定影片長度的製作內容，定義軌道長度就是定義最終影片長度。  
+[影片]()  
 
-```
+軌道`to`預設值`None`是指結束時間為無限，當然你也可以決定軌道時間長度，定義軌道長度就是定義最終影片長度，當有多個軌道時間長度不一致的時候以最短為最優先。  
+
+```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
 
-a.track(1)
-b.track(2)
+composite()
+    track(1, to=40)
+        a.clip(sequence=1, ss=0, t=9)
+        b.clip(sequence=2, ss=10, t=19)
 
-export(export_movie_settings)
-```
-
-```
-from . import aaaaaa as a
-from . import bbbbbb as b
-
-track(1)
-    a.clip()
-    b.clip()
-
-b.track(2)
+    track(2)
+        a.clip(sequence=1, ss=20, t=25)
+        b.clip(sequence=2, ss=30, t=39)
 
 export(export_movie_settings)
 ```
@@ -418,14 +431,16 @@ export(export_movie_settings)
 ```
 from . import cccccc as c
 
-c.track()
+composite()
+    track(1, to=40)
+        c.clip(sequence=1, t=90)
 
 export(export_movie_settings)
 ```
 
-### 影片分割
+### 剪輯
 ```
-clip(sequence=1, ss=Mine, t=None, to=None, high, with)
+clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
 ```
 
 如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須將軌道當作方法。
@@ -438,7 +453,17 @@ clip(sequence=1, ss=Mine, t=None, to=None, high, with)
 
 但可以透過2~n個軌道讓時間重疊處。
 
-### 特效
+### 特殊效果
+特效反而比較奇特，是素材的一種，特效可以用的地方相當廣泛，字幕、翻譯、反交錯與轉場等。可以參考[維基百科](https://zh.wikipedia.org/wiki/%E7%89%B9%E6%AE%8A%E6%95%88%E6%9E%9C)所提供的名詞。
+
+- 機內特效
+- 物理特效
+- 光化學特效
+- 數字特效
+- 繪圖軟體
+- 三維動畫軟體
+- 合成軟體  
+
 ```
 effects()
 ```
@@ -448,7 +473,11 @@ effects()
 composite()
 ```
 
+所謂的合成，如果以剪輯軟體就是將所有軌道畫面疊加起來所完成最終的結果，那FFmpeg則是濾鏡，透過指定的濾鏡將不同的串流編碼輸出。
+
 ### 輸出
+將最終的影片輸出，可以選擇輸出的格式、大小、容器、影片長度、比例與解析度等。
+
 ```
 export(export_movie_settings)
 ```
