@@ -238,11 +238,11 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 
 # 語法
 ## 語法概念
-語法靈感來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別，因此
+語法靈感來自Python、Markdowb與YAML，但多來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別，因此
 
 > Python可以在MPDL運作，但MPDL不能在Python執行。  
 
-由於目前針對影片製作提出了製作流程與語法，但目前因為暫定初代語法所以未來會針對Python與不同藝術領域結合，所以這邊先提出語法的基本運作原則:
+由於目前針對影片製作提出了製作流程與語法，但目前因為暫定初代語法，未來會針對Python與不同藝術領域結合，所以這邊先提出語法的基本運作原則:
 
 - 輸出的結果是將不同的「物件」一層一層堆疊在一個框架內
 - 「物件」的「型態」是定義於「類別」
@@ -253,7 +253,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 後續會持續修正，同時建議語法使用flake8等風格化規範，讓撰寫上大家不會有誤會等問題。  
 
 ## 影片
-MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html)，除了上述也針對流程有以下見解。
+MPDL在影片的處理方式除了語法靈感來自Python、markdown與YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html)，除了上述也針對流程有以下見解。
 
 影片製作流程分三項基本型態:「素材」、「規劃」與「處理」，「規劃」被劃分在「素材」的產生方式、製作流程、工作內容、方法等；「素材」則被劃分在原始的影片、圖片、聲音或其他媒體；「處理」則是劃分在如何處理原始的「素材」並輸出，符合基本流程。  
 
@@ -290,6 +290,7 @@ MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像
     - 音樂
     - 音效  
     - 特效
+    - 字幕
     ...
 
 2. 處理  
@@ -298,15 +299,15 @@ MPDL在影片的處理方式除了語法靈感來自Python、YAML，處理影像
     - 合成
     - 字幕
     - 轉場  
-    - 翻譯
-    - 字幕  
+    - 翻譯  
+    - 去交錯
     ...
 
 ## 匯入
 ```MPDL
 from . import vlase
 ```
-此方法是用於匯入素材，素材必須以指定的數位摘要或者指紋來指定的匯入檔案，以SHA2為例計算出檔案雜湊值最少前六碼來標記，匯入前會將指定的檔案做驗證才會真正使用，基本的不安全匯入:
+此方法是用於匯入素材、多媒體資料庫與套件，素材必須以指定的數位摘要或者指紋來指定的匯入檔案，以SHA2為例計算出檔案雜湊值最少前六碼來標記，匯入前會將指定的檔案做驗證才會真正使用，基本的不安全匯入:
 
 ```MPDL
 import aabbcc
@@ -318,20 +319,29 @@ import aabbcc
 from . import aabbcc
 ```
 
-先將數位檔案經過雜湊後產生對應的數位指紋來對應所要的素材，會有一個檔案紀錄雜湊值對應的檔案，名稱不限制。  
+當然你也可以針對你的素材對應指定名稱，名稱必須是英文大小寫加上底線。  
 
 ```MPDL
-from .file.directory import hash_vlue as vlase
-import hash_vlue
+import aabbcc as abc
 ```
 
-目錄匯入設定
-- `file_directory/` = `file_directory`
-- `file_directory/file_directory/` = `file_directory.file_directory`
-- `./file_directory/` = `.file_directory`  
-- `./file_directory/file_directory` = `.file_directory.file_directory`  
-- `../file_directory` = `..file_directory`
-- `../file_directory/file_directory` = `..file_directory.file_directory`
+那如果你想要指定檔案所在位置，使用`.`來到達。
+
+```MPDL
+from . import aabbcc as abc
+```
+
+如果指定上一層指定匯入，那可以使用`..`方式回去上一個目錄。
+
+```MPDL
+from .. import aabbcc as abc
+```
+
+如果要針對更進階的，可以設定目錄方法或者加入環境變數，來設定指定素材、多媒體資料庫或套件的目錄位置。
+
+```MPDL
+
+```
 
 使用注意事項:
 - 可連結媒體資料庫
@@ -342,13 +352,70 @@ import hash_vlue
 - 可以使用匯入已經是結果的素材，也就是使用語言製作的影片再次匯入，但影片是並未成形的。
 - 可以利用影片內再分類別
 - 雖然未限制大小寫，但素材是以雜湊值匯入者建議使用小寫
-- 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。
 
-## 解碼
+## 素材
 ```MPDL
-from . import aabbcc as abc
+abc(sequence=1,ss=None ,t=None, to=None, high=1080, with=1920)
+```
+匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。  
 
-abc(sequence=1, t=None, 1080, 1920)
+使用方式就是直接使用匯入的素材直接作為函式使用，例如直接依照匯入輸出。  
+
+```
+from .. import aabbcc as abc
+
+
+abc()
+
+export()
+```  
+
+或者可以使用「物件指定方法」一樣可以達到直接輸出的作用。
+
+```
+from .. import aabbcc as abc
+
+
+abc().export()
+```  
+
+還可以設定解析度、長寬比、使用的時間長度等。
+
+```
+from .. import aabbcc as abc
+
+
+abc(sequence=1,ss=0 ,t=3600,  high=1080, with=1920)
+
+export()
+```  
+
+如果是多個素材匯入，預設上如果不使用`sequence`的話，播放順序是以越前面的優先使用。  
+
+如果不加上其他物件或方法，單純的輸出，此結果跟運作方式會與第二相同。
+
+第一個輸出方式。
+```
+from .. import aabbcc as abc
+from .. import ddeeff as edf
+
+abc()
+edf()
+
+export()
+```
+
+第二個輸出方式。
+```MPDL
+from .. import aabbcc as abc
+from .. import ddeeff as edf
+
+composite()
+    track()
+        abc()
+        edf()
+
+export()
 ```
 
 ### 軌道
@@ -376,7 +443,7 @@ export(export_movie_settings)
 
 [輸出影片]()  
 
-軌道`to`預設值`None`是指結束時間為無限，當然你也可以決定軌道時間長度，定義軌道長度就是定義最終影片長度，當有多個軌道時間長度不一致的時候以最短為最優先。  
+軌道`to`預設值`None`是指結束時間為無限，當然你也可以決定軌道時間長度，定義軌道長度就是定義影片長度，如果當有多個軌道但要設定時間長度要在第一個軌道定義時間長度。  
 
 ```MPDL
 from . import aaaaaa as a
@@ -446,11 +513,11 @@ composite()
 所謂的合成，如果以剪輯軟體就是將所有軌道畫面疊加起來所完成最終的結果，那FFmpeg則是濾鏡，透過指定的濾鏡將不同的串流編碼輸出。
 
 ### 輸出
-將最終的影片輸出，可以選擇輸出的格式、大小、容器、影片長度、比例與解析度等。
-
 ```
 export(export_movie_settings)
 ```
+將最終的影片輸出，可以選擇輸出的格式、大小、容器、影片長度、比例與解析度等。
+
 
 ## 運算
 ### 布林運算
