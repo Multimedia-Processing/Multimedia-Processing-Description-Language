@@ -379,19 +379,27 @@ from .. import aabbcc as abc
 abc().export()
 ```  
 
-還可以設定解析度、長寬比、使用的時間長度等。
+還可以設定解析度、長寬比、使用的時間長度等，`t`與`to`是不能同時使用，同時出現時優先使用`to`。
 
 ```
 from .. import aabbcc as abc
 
 
-abc(sequence=1,ss=0 ,t=3600,  high=1080, with=1920)
+abc(sequence=1,ss=0 ,t=3600,  high=1080, wide=1920, )
 
 export()
 ```  
 
-如果是多個素材匯入，預設上如果不使用`sequence`的話，播放順序是以越前面的優先使用。  
+如果是多個素材匯入，預設上如果不使用`sequence`的話，播放順序是以越前面的優先使用，但如果有使用`sequence`的話可以不按照順序，不過還是建議按照順序使用。  
 
+```MPDL
+from .. import aabbcc as abc
+
+abc(sequence=2, ss=0, t=19,  high=1080, wide=1920, )
+abc(sequence=1, ss=20, t=29,  high=1080, wide=1920, )
+
+export()
+```
 如果不加上其他物件或方法，單純的輸出，此結果跟運作方式會與第二相同。
 
 第一個輸出方式。
@@ -478,9 +486,11 @@ export(export_movie_settings)
 clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
 ```
 
-如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須將軌道當作方法。
+如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須與素材綁定。
 
+```
 
+```
 
 影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但不能是相同時間開始與結束。
 
@@ -514,7 +524,7 @@ composite()
 
 ### 輸出
 ```
-export(export_movie_settings)
+export()
 ```
 將最終的影片輸出，可以選擇輸出的格式、大小、容器、影片長度、比例與解析度等。
 
