@@ -382,15 +382,17 @@ from path import aabbcc as abc
 - 可以利用影片內再分類別
 - 雖然未限制大小寫，但素材是以雜湊值匯入者建議使用小寫
 
-## 素材
+### 素材
 ```MPDL
 abc(sequence=1,ss=None ,t=None, to=None, high=1080, with=1920)
 ```
 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。  
 
+此時素材的設定會暫存在`.temp`的目錄底下，系統會自動為他計算雜湊值，但雜湊值預設上不會自動儲存紀錄。
+
 使用方式就是直接使用匯入的素材直接作為函式使用，例如直接依照匯入輸出。  
 
-```
+```MPDL
 from .. import aabbcc as abc
 
 
@@ -401,7 +403,7 @@ export()
 
 或者可以使用「物件指定方法」一樣可以達到直接輸出的作用。
 
-```
+```MPDL
 from .. import aabbcc as abc
 
 
@@ -410,7 +412,7 @@ abc().export()
 
 還可以設定解析度、長寬比、使用的時間長度等，`t`與`to`是不能同時使用，同時出現時優先使用`to`。
 
-```
+```MPDL
 from .. import aabbcc as abc
 
 
@@ -468,12 +470,12 @@ from . import bbbbbb as b
 
 composite()
     track(1)
-        a.clip(sequence=1, ss=0, t=9)
-        b.clip(sequence=2, ss=10, t=19)
+        a(sequence=1, ss=0, t=9)
+        b(sequence=2, ss=10, t=19)
 
     track(2)
-        a.clip(sequence=1, ss=20, t=25)
-        b.clip(sequence=2, ss=30, t=39)
+        a(sequence=1, ss=20, t=25)
+        b(sequence=2, ss=30, t=39)
 
 export(export_movie_settings)
 ```
@@ -488,12 +490,12 @@ from . import bbbbbb as b
 
 composite()
     track(1, to=40)
-        a.clip(sequence=1, ss=0, t=9)
-        b.clip(sequence=2, ss=10, t=19)
+        a(sequence=1, ss=0, t=9)
+        b(sequence=2, ss=10, t=19)
 
     track(2)
-        a.clip(sequence=1, ss=20, t=25)
-        b.clip(sequence=2, ss=30, t=39)
+        a(sequence=1, ss=20, t=25)
+        b(sequence=2, ss=30, t=39)
 
 export(export_movie_settings)
 ```
@@ -518,12 +520,38 @@ clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
 如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須與素材綁定。
 
 ```
+from . import aaaaaa as a
+from . import bbbbbb as b
 
+composite()
+    track(1, to=40)
+        a.clip(sequence=1, ss=0, t=9)
+        b.clip(sequence=2, ss=10, t=19)
+
+    track(2)
+        a.clip(sequence=1, ss=20, t=25)
+        b.clip(sequence=2, ss=30, t=39)
+
+export(export_movie_settings)
 ```
 
 影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但不能是相同時間開始與結束。
 
+```
+from . import aaaaaa as a
+from . import bbbbbb as b
 
+composite()
+    track(1, to=40)
+        a.clip(sequence=1, ss=0, t=9)
+        b.clip(sequence=2, ss=10, t=19)
+
+    track(2)
+        a.clip(sequence=1, ss=20, t=25)
+        b.clip(sequence=2, ss=30, t=39)
+
+export(export_movie_settings)
+```
 
 但可以透過2~n個軌道讓時間重疊處。
 
