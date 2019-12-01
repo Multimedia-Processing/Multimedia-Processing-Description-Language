@@ -303,7 +303,7 @@ MPDL在影片的處理方式除了語法靈感來自Python、markdown與YAML，�
     - 去交錯
     ...
 
-## 匯入
+### 匯入
 ```MPDL
 from . import vlase
 ```
@@ -313,10 +313,10 @@ from . import vlase
 import aabbcc
 ```
 
-當然還可以針對路徑與程式碼等做匯入，安全匯入:
+當然還可以針對相同目錄往下尋找路徑與程式碼等做匯入，安全匯入:
 
 ```MPDL
-from . import aabbcc
+from path import aabbcc
 ```
 
 當然你也可以針對你的素材對應指定名稱，名稱必須是英文大小寫加上底線。  
@@ -325,7 +325,7 @@ from . import aabbcc
 import aabbcc as abc
 ```
 
-那如果你想要指定檔案所在位置，使用`.`來到達。
+那如果你想要使用相對路徑指定檔案所在位置，使用`.`來到達。
 
 ```MPDL
 from . import aabbcc as abc
@@ -337,10 +337,39 @@ from . import aabbcc as abc
 from .. import aabbcc as abc
 ```
 
-如果要針對更進階的，可以設定目錄方法或者加入環境變數，來設定指定素材、多媒體資料庫或套件的目錄位置。
+也可以設定絕對路徑指定目錄方法，來設定指定素材、多媒體資料庫或套件的目錄位置，`...`為Linux根目錄，Windows是指回到比磁碟機槽還前面去尋找磁碟機。
 
+Linux:
 ```MPDL
+from ...home.user. import aabbcc as abc
+```
 
+Windows:
+```MPDL
+from ...c.path. import aabbcc as abc
+```
+
+如果在Linux上，也可以使用`~`來指定回到家目錄。
+
+Linux:
+```MPDL
+from ~ import aabbcc as abc
+```
+
+匯入時會先將指定路徑的媒體計算雜湊值，驗證名稱與內容是否一致後會產生一個快取資料夾，提供預處理或者預覽影像的暫存區。
+
+```
+-path-.temp
+     |-multimedia
+```
+
+範例
+```MPDL
+from path import aabbcc as abc
+```
+```
+-path- .temp
+     |-aabbcc...
 ```
 
 使用注意事項:
@@ -499,6 +528,9 @@ clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
 但可以透過2~n個軌道讓時間重疊處。
 
 ### 特殊效果
+```
+effects()
+```
 特殊效果是素材的一種，特效可以用的地方相當廣泛，字幕、翻譯、反交錯與轉場等，可以參考[維基百科](https://zh.wikipedia.org/wiki/%E7%89%B9%E6%AE%8A%E6%95%88%E6%9E%9C)所提供的名詞。
 
 特殊效果在這裡定義為素材，因此這裡會比較奇特，在剪輯軟體中是一個特效，不過在FFmpeg中是[濾鏡](https://ffmpeg.org/ffmpeg.html#Detailed-description)，使用濾鏡是在對FFmpeg加入參數。
@@ -511,9 +543,7 @@ clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
 - 三維動畫軟體
 - 合成軟體  
 
-```
-effects()
-```
+由於特殊效果也是特效的一種，因此在素材疊加時也是佔用一個軌道，但可以通過`def`去群組素材與特效，
 
 ### 合成
 ```
