@@ -384,7 +384,7 @@ from path import aabbcc as abc
 
 ### 素材
 ```MPDL
-abc(sequence=1,ss=None ,t=None, to=None, high=1080, with=1920)
+abc(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, x=0, y=0)
 ```
 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。  
 
@@ -416,7 +416,7 @@ abc().export()
 from .. import aabbcc as abc
 
 
-abc(sequence=1,ss=0 ,t=3600,  high=1080, wide=1920, )
+abc(ss=0, t=3600,  high=1080, wide=1920)
 
 export()
 ```  
@@ -426,8 +426,8 @@ export()
 ```MPDL
 from .. import aabbcc as abc
 
-abc(sequence=2, ss=0, t=19,  high=1080, wide=1920, )
-abc(sequence=1, ss=20, t=29,  high=1080, wide=1920, )
+abc(sequence=2, ss=0, t=19,  high=1080, wide=1920)
+abc(sequence=1, ss=20, t=29,  high=1080, wide=1920)
 
 export()
 ```
@@ -458,35 +458,35 @@ export()
 ```
 
 ### 軌道
-```
+```MPDL
 track(sequence=1, to=None)
 ```
 
-「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)所提到[「串流」(Stream)](https://ffmpeg.org/ffmpeg.html#Stream-selection)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)。  
+「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)所提到[「串流」(Stream)](https://ffmpeg.org/ffmpeg.html#Stream-selection)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)中的影像。  
 
 ```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
 
+
 composite()
     track(1)
-        a(sequence=1, ss=0, t=9)
-        b(sequence=2, ss=10, t=19)
+        a(sequence=1, ss=0, t=10)
+        b(sequence=2, ss=10, t=20)
 
     track(2)
         a(sequence=1, ss=20, t=25)
-        b(sequence=2, ss=30, t=39)
+        b(sequence=2, ss=30, t=40)
 
 export(export_movie_settings)
 ```
-
-[輸出影片]()  
 
 軌道`to`預設值`None`是指結束時間為無限，當然你也可以決定軌道時間長度，定義軌道長度就是定義影片長度，如果當有多個軌道但要設定時間長度要在第一個軌道定義時間長度。  
 
 ```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
+
 
 composite()
     track(1, to=40)
@@ -507,17 +507,17 @@ from . import cccccc as c
 
 composite()
     track(1, to=40)
-        c.clip(sequence=1, t=90)
+        c(sequence=1, t=90)
 
 export(export_movie_settings)
 ```
 
 ### 剪輯
 ```
-clip(sequence=1, ss=None, t=None, to=None, high, with, 座標x, 座標y)
+clip(sequence=1, ss=None, t=None, to=None, high=1080, wide=1920)
 ```
 
-如果不打上任何參數，使用的素材預設是會是不剪輯或刪除，使用上必須與素材綁定。
+如果不打上任何參數，使用的素材，使用上必須與素材綁定。
 
 ```
 from . import aaaaaa as a
