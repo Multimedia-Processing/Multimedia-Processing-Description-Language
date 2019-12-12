@@ -384,11 +384,11 @@ from path import aabbcc as abc
 
 ### 素材
 ```MPDL
-abc(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, x=0, y=0)
+abc(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, db=False)
 ```
-匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速剪輯軟體在即時預覽的速度，或者讓最後輸出可以使用複製串流的方式加速。  
+匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速在即時預覽的速度或加快輸出輸時的速度，素材設定不會影響輸出時的原始素材。  
 
-此時素材的設定會暫存在`.temp`的目錄底下，系統會自動為他計算雜湊值，但雜湊值預設上不會自動儲存紀錄。
+原因是素材的設定會暫存在`.temp`的目錄底下，系統會自動為他計算雜湊值並以雜湊值作檔案名稱，預設不會自動從`.temp`轉移與記錄在多媒體資料庫。
 
 使用方式就是直接使用匯入的素材直接作為函式使用，例如直接依照匯入輸出。  
 
@@ -411,6 +411,8 @@ abc().export()
 ```  
 
 還可以設定解析度、長寬比、使用的時間長度等，`t`與`to`是不能同時使用，同時出現時優先使用`to`。
+
+時間單位以)、「秒」(s)為基本，可以使用「微秒」(ms)、「秒」(s)或者hms制
 
 ```MPDL
 from .. import aabbcc as abc
@@ -514,10 +516,9 @@ export(export_movie_settings)
 
 ### 剪輯
 ```
-clip(sequence=1, ss=None, t=None, to=None, high=1080, wide=1920)
+clip(sequence=1, ss=None, t=None, to=None, high=1080, wide=1920, x=0, y=0)
 ```
-
-如果不打上任何參數，使用的素材，使用上必須與素材綁定。
+如果不打上任何參數，將以原始素材去做合成並輸出，使用上必須與素材綁定。
 
 ```
 from . import aaaaaa as a
