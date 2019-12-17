@@ -307,7 +307,11 @@ MPDL在影片的處理方式除了語法靈感來自Python、markdown與YAML，�
 ```MPDL
 from . import vlase
 ```
-此方法是用於匯入素材、多媒體資料庫與套件，素材必須以指定的數位摘要或者指紋來指定的匯入檔案，以SHA2為例計算出檔案雜湊值最少前六碼來標記，匯入前會將指定的檔案做驗證才會真正使用，基本的不安全匯入:
+此方法是用於匯入素材、多媒體資料庫與套件，素材必須以指定的數位摘要或者指紋來指定的匯入檔案，以SHA2為例計算出檔案雜湊值最少前六碼來標記，匯入前會將指定的檔案做驗證才會真正使用。  
+
+影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。  
+
+基本的不安全匯入:
 
 ```MPDL
 import aabbcc
@@ -341,12 +345,12 @@ from .. import aabbcc as abc
 
 Linux:
 ```MPDL
-from ...home.user. import aabbcc as abc
+from ...home.user import aabbcc as abc
 ```
 
 Windows:
 ```MPDL
-from ...c.path. import aabbcc as abc
+from ...c.path import aabbcc as abc
 ```
 
 如果在Linux上，也可以使用`~`來指定回到家目錄。
@@ -384,13 +388,15 @@ from path import aabbcc as abc
 
 ### 素材
 ```MPDL
-abc(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, db=False)
+material(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, db=False)
 ```
 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速在即時預覽的速度或加快輸出輸時的速度，素材設定不會影響輸出時的原始素材。  
 
 原因是素材的設定會暫存在`.temp`的目錄底下，系統會自動為他計算雜湊值並以雜湊值作檔案名稱，預設不會自動從`.temp`轉移與記錄在多媒體資料庫。
 
 使用方式就是直接使用匯入的素材直接作為函式使用，例如直接依照匯入輸出。  
+
+影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。  
 
 ```MPDL
 from .. import aabbcc as abc
@@ -466,6 +472,8 @@ track(sequence=1, to=None)
 
 「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)所提到[「串流」(Stream)](https://ffmpeg.org/ffmpeg.html#Stream-selection)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)中的影像。  
 
+影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。
+
 ```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
@@ -518,7 +526,7 @@ export(export_movie_settings)
 ```
 clip(sequence=1, ss=None, t=None, to=None, high=1080, wide=1920, x=0, y=0)
 ```
-如果不打上任何參數，將以原始素材去做合成並輸出，使用上必須與素材綁定。
+如果不打上任何參數，將以原始素材去做合成並輸出，使用上必須與素材綁定，這裡面設定的參數會影響輸出的內容，影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。
 
 ```
 from . import aaaaaa as a
@@ -536,7 +544,7 @@ composite()
 export(export_movie_settings)
 ```
 
-影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但不能是相同時間開始與結束。
+影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但禁止在同一個軌道內時間重疊。
 
 ```
 from . import aaaaaa as a
@@ -544,8 +552,8 @@ from . import bbbbbb as b
 
 composite()
     track(1, to=40)
-        a.clip(sequence=1, ss=0, t=9)
-        b.clip(sequence=2, ss=10, t=19)
+        a.clip(sequence=1, ss=0, t=10)
+        b.clip(sequence=2, ss=10, t=20)
 
     track(2)
         a.clip(sequence=1, ss=20, t=25)
@@ -554,13 +562,40 @@ composite()
 export(export_movie_settings)
 ```
 
-但可以透過2~n個軌道讓時間重疊處。
+但可以透過2~n個軌道讓時間重疊。
+
+```
+from . import aaaaaa as a
+from . import bbbbbb as b
+
+composite()
+    track(1, to=40)
+        a.clip(sequence=1, ss=0, t=10)
+        b.clip(sequence=2, ss=10, t=20)
+
+    track(2)
+        a.clip(sequence=1, ss=10, t=25)
+        b.clip(sequence=2, ss=30, t=39)
+
+export(export_movie_settings)
+```
 
 ### 特殊效果
-```
+```MPDL
 effects()
 ```
 特殊效果是素材的一種，特效可以用的地方相當廣泛，字幕、翻譯、反交錯與轉場等，可以參考[維基百科](https://zh.wikipedia.org/wiki/%E7%89%B9%E6%AE%8A%E6%95%88%E6%9E%9C)所提供的名詞。
+
+使用上必須匯入，此匯入的特效必須「必須」是Python、MPDL或者可以提供影像處理調用的套件、模組、類別、函式與程式，但與多媒體類的素材不同的是，「可」選擇是否以數位摘要或指紋的方式匯入。
+
+```MPDL
+from effects import Effects as 去交錯
+
+
+abc()
+
+export()
+```
 
 特殊效果在這裡定義為素材，因此這裡會比較奇特，在剪輯軟體中是一個特效，不過在FFmpeg中是[濾鏡](https://ffmpeg.org/ffmpeg.html#Detailed-description)，使用濾鏡是在對FFmpeg加入參數。
 
@@ -572,7 +607,11 @@ effects()
 - 三維動畫軟體
 - 合成軟體  
 
-由於特殊效果也是特效的一種，因此在素材疊加時也是佔用一個軌道，但可以通過`def`去群組素材與特效，
+由於特殊效果也是素材的一種，因此在素材疊加時也是佔用一個軌道，但可以通過`def`去群組素材與特效，例如:
+
+```MPDL
+
+```
 
 ### 合成
 ```
