@@ -60,6 +60,7 @@ Git版本控制是一個「分散式版本控管系統」(DVCS; Distributed Vers
 此軟體的想法來自於Linux之父，目的就是來自於當時全世界都在開發Linux的系統內核，大量的人開發者參與其中，因此需要一個並非是集中式管理機制來解決程式衝突的問題，此機制儼然而生。  
 
 同時Linux之父林納斯·托瓦茲講過以下的話
+
 > 類似什麼在很多人的共同開發下，程式碼的錯誤會在很短的時間內找出來。
 
 因此大型的多人協作與社群參與在未來必為方向。
@@ -94,16 +95,27 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 ##### 項目
 「項目」(Item)，也稱作為「描述」(Story)，是產品負責人定義的，「項目」(Item)的大小要剛好可以團隊在平常可以完成3~5個，太多太繁雜，太少沒做完感覺沒有用，都會打擊團隊。
 
+「項目」(Item)在GitHub與GitLab可使用「里程碑」(Milestones)代替。
+
 ##### 任務
 「任務」(Task)是「開發團隊」(Dev Team, Development Team)針對物件所列出的任務;任務的分配是開發團隊自己分配的。  
 
-##### 產品待辦清單
-「產品待辦清單」(Product Backlog)是專案的文檔，大概的描述內容、產生的東西、特性、概念等。  
+「任務」(Task)在GitHub與GitLab可使用「議題」(Issues)代替。
 
-內容產品負責人負責調整、製作，以「項目」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
+##### 產品待辦清單
+「產品待辦清單」(Product Backlog)是「項目」(Item)的文檔，大概描述「項目」(Item)的內容、產生的東西、特性與概念等，同時安排「任務」(Task)。  
+
+內容由「產品負責人」(PO, Product Owner)負責調整、製作，會將「產品待辦清單」(Product Backlog)寫到「項目」(Item)並以「項目」(Item)為單位，製作的時間長度以天為單位，順序由上而下。
+
+「產品待辦清單」(Product Backlog)在GitLab可使用每個「里程碑」(Milestone)內的「議題」(Issues)、「合併請求」(Merge Requests)、「參與者」(Participants)、「標籤」(Labels)、「標題」(Title)與「描述」來代替。
 
 ##### 衝刺待辦清單
-「衝刺待辦清單」(Sprint Backlog)是「開發團隊」向產品負責人承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。  
+「衝刺待辦清單」(Sprint Backlog)是「開發團隊」(Dev Team, Development Team)向「產品負責人」(PO, Product Owner)承諾這個「衝刺」(Sprint)會盡力完成的「項目列表」(Item List)，以「任務」(Task)為單位，時間以小時為單位，並在16小時內完成，超過就會再分解。  
+
+由於GitLab並未像Azure DevOps有提供「衝刺待辦清單」(Sprint Backlog)的「項目」(Item)連結「任務」(Task)並條列、拉動與預先創立的功能，可以用幾個方法來代替:
+1. 使用Google日曆列出「衝刺」(Sprint)週期，搭配GitLab的「議題看板」(Issue Boards)加上名稱為「衝刺待辦清單」(Sprint Backlog)的「標籤」(Label)並新增「列」(List)後連結此標籤。
+2. 為每一個「議題」(Issue)拉動到`To Do`後標註結束時間到「衝刺」(Sprint)結束為止。
+
 
 ##### 潛在可交付產品增量
 「潛在可交付產品增量」(Potentially Shippable Product Increment)是「開發團隊」(Dev Team, Development Team)的產出，簡單的說就是「產品負責人」(PO, Product Owner)說要上線就可以馬上上線的東西才算數。  
