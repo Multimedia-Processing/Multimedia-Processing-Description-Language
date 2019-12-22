@@ -54,6 +54,9 @@
     - [一條龍製作](#一條龍製作)
 - [語法](#語法)
   - [語法概念](#語法概念)
+  - [呼叫與繼承](#呼叫與繼承)
+    - [物件與方法](#物件與方法)
+    - [縮排與換行](#縮排與換行)
   - [影片](#影片)
     - [匯入](#匯入)
     - [素材](#素材)
@@ -70,6 +73,7 @@
   - [迴圈](#迴圈)
     - [while迴圈](#while迴圈)
     - [for迴圈](#for迴圈)
+  - [函式](#函式)
 - [參考文獻](#參考文獻)
 - [中音對照表、專有名詞對照](#中音對照表、專有名詞對照)
 
@@ -324,7 +328,11 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 ## 語法概念
 語法靈感來自Python、Markdowb與YAML，但多來自Python，因此如果熟悉Python會較為輕鬆使用，但還是會與原本的Python有所差別，因此
 
-> Python可以在MPDL運作，但MPDL不能在Python執行。  
+> Python可以在MPDL運作，但MPDL不能在Python執行
+
+運作的方式
+
+> 使用Python匯入程式的方式
 
 由於目前針對影片製作提出了製作流程與語法，但目前因為暫定初代語法，未來會針對Python與不同藝術領域結合，所以這邊先提出語法的基本運作原則:
 
@@ -335,6 +343,115 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 - 物件的使用可以類似於流程一樣
 
 後續會持續修正，同時建議語法使用flake8等風格化規範，讓撰寫上大家不會有誤會等問題。  
+
+## 呼叫與繼承
+影像輸出上為了可以方便的控制輸出的結果，這邊介紹控制的影像輸出的結果，使用上有[物件與方法](#物件與方法)與[縮排與換行](#縮排與換行)兩種方式
+
+### 物件與方法
+此參考的是Python在物件導向的使用方式，但並不完全使用一樣。最基本的就是使用`.`去區分層級與呼叫，越前面的函式可以直接影響後面的輸出結果。以下面程式為例，動作的方式代表了先匯入，再來剪輯然後輸出，如以下程式:
+
+```MPDL
+from aabbcc import video
+
+
+export().clip().video()
+
+```
+
+同時也接受分開去使用，來避免重複與長度過長的問題，但必須上一個與下一個都呼叫到才會有效用。例如有`a()`、`b()`與`c()`函式，`c()`的內容要繼承給`b()`，就必須使用`b().c()`方式去讓`b()`呼叫`c()`使`b()`繼承`c()`的內容，但如果要讓`a()`可以繼承`c()`的內容使用上必須使用`a().b().c()`方式讓`a()`可以繼承`c()`。
+
+以下面程式為例，先匯入影片並命名`video1`與`video2`，並且個別放入軌道`track(1)`與`track(2)`，然後再將`track(1)`加上特效`effects()`開啟「去交錯」讓`track(1)`中所有的影片都可以去交錯，然後將影片中所有軌道使用`composite()`合成起來，最後輸出。
+
+```MPDL
+from aabbcc import video1
+from ddeeff import video2
+
+
+track(1).clip(1).video1()
+track(2).clip(2).video2()
+
+effects(deinterlacing=True).track(1)
+
+composite().track(1)
+composite().track(2)
+
+export().composite()
+
+```
+
+### 縮排與換行
+此參考的是Python與YAML在縮排與換的方式去控制影響的內容。保留了Python常用的保留字，並參考YAML的方式改善上述的問題，讓閱讀上更加直覺與明瞭。
+
+換行使用`\n`或者`\r\n`，也就是LF與CRLF的換行模式，建議使用`\n`。縮排可以使用Tab或者空白，不限定Tab與空白的次數，只要統一對齊就可以，但建議使用四個空白來控制縮排的對齊。
+
+以[呼叫與繼承](#呼叫與繼承)的第一個範例為例，使用縮排來控制繼承的內容，越內縮的就代表被會被上一個不內縮的呼叫，行數與內容卻比使用物件與方法，程式如下:
+
+```MPDL
+from aabbcc import video
+
+export()
+  clip()
+    video()
+
+```
+
+如果複雜一點使用1的第二個範例為例，使用縮排來控制繼承的內容，`clip()`因為必須使用`.`方式呼叫素材，所以會無法分開。程式因此也比較直觀與易懂，程式如下:
+
+```MPDL
+from aabbcc import video1
+from ddeeff import video2
+
+
+export()
+  composite()
+    effects(deinterlacing=True)
+      track(1)
+        clip(1).video1()
+
+    track(2)
+      clip(2).video2()
+
+```
+
+不過除了縮排，換行也可以控制呼叫與繼承，高的行數可以優先呼叫低的函式，而高的行數也會直接決定每個函式被呼叫的排列，例如:
+
+```MPDL
+from aabbcc import video1
+from ddeeff import video2
+
+
+effects(deinterlacing=True)
+  track()
+    clip().video1()
+
+track()
+  clip().video2()
+
+composite()
+export()
+
+```
+
+如果函式的排列如果同時使用有參數強制與無參數指定非強制指定，而且對於被呼叫函式並非第一個呼叫，則優先使用使用強制指定的，例如:
+
+```MPDL
+from aabbcc import video1
+from ddeeff import video2
+
+
+effects(deinterlacing=True)
+  track()
+    clip().video1()
+    clip().video1()
+    clip(2).video1()
+
+track()
+  clip().video2()
+
+composite()
+export()
+
+```
 
 ## 影片
 MPDL在影片的處理方式除了語法靈感來自Python、markdown與YAML，處理影像的靈感則來自於剪輯軟體與[FFmpeg](https://ffmpeg.org/ffmpeg.html)，除了上述也針對流程有以下見解。
@@ -621,7 +738,7 @@ export(export_movie_settings)
 ```
 clip(sequence=1, ss=None, t=None, to=None, high=1080, wide=1920, x=0, y=0)
 ```
-如果不打上任何參數，將以原始素材去做合成並輸出，使用上必須與素材綁定，這裡面設定的參數會影響輸出的內容，影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。
+如果不打上任何參數，將以原始素材去做合成並輸出，使用上必須與素材綁定，這裡面設定的參數會影響輸出的內容。
 
 ```
 from . import aaaaaa as a
@@ -639,7 +756,7 @@ composite()
 export(export_movie_settings)
 ```
 
-影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但禁止在同一個軌道內時間重疊。
+影片分割就是用於剪輯影片，一個軌道可以容下多個且重複的影片，但「禁止」(MUST NOT)在同一個軌道內時間重疊。
 
 ```
 from . import aaaaaa as a
@@ -679,9 +796,21 @@ export(export_movie_settings)
 ```MPDL
 effects()
 ```
-特殊效果是素材的一種，特效可以用的地方相當廣泛，字幕、翻譯、「去交錯」(解除交錯，deinterlacing)與轉場等，可以參考[維基百科](https://zh.wikipedia.org/wiki/%E7%89%B9%E6%AE%8A%E6%95%88%E6%9E%9C)所提供的名詞。
+特殊效果是素材的一種，特效可以用的地方相當廣泛，字幕、翻譯、「解除交錯」(deinterlacing)與轉場等，可以參考[維基百科](https://zh.wikipedia.org/wiki/%E7%89%B9%E6%AE%8A%E6%95%88%E6%9E%9C)所提供的名詞。
 
-使用上必須匯入，此匯入的特效必須「必須」是Python、MPDL或者可以提供影像處理調用的套件、模組、類別、函式與程式，但與多媒體類的素材不同的是，「可」選擇是否以數位摘要或指紋的方式匯入。
+其中特殊效果的參數依照不同的套件、模組、類別、函式與程式去使用，而套件、模組、類別、函式與程式的名稱也是依照使用去命名，並不限定只能`effects()`，不過`effects()`是內建可以運作的函式。
+
+```MPDL
+from . import bbbbbb as b
+
+composite()
+  effects(deinterlacing=True)
+    b()
+
+export()
+```
+
+使用上必須匯入，此匯入的特效必須「必須」(MUST)是Python、MPDL或者可以提供影像處理調用的套件、模組、類別、函式與程式，但與多媒體類的素材不同的是，「可」選擇是否以數位摘要或指紋的方式匯入。
 
 ```MPDL
 from effects import Effects as deinterlacing
@@ -771,6 +900,10 @@ while True:
 for x in xlist:
     track(x)
 ```
+
+## 函式
+```def```
+是函式也是群組的功能。
 
 # 參考文獻
 [1] [Yves Lin，2015/5/27，Scrum 不包生導入指南，Scrum入門簡介。](https://funevo.com/2015/05/27/scrum-beginner-introduce-guide-dao-ru-zhi-nan/)  
