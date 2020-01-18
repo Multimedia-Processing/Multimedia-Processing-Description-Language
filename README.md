@@ -332,7 +332,7 @@ Scrum有三種角色，「開發團隊」(Dev Team, Development Team)、「產�
 
 運作的方式
 
-> 使用Python匯入程式的方式
+> 採用直譯方式，由Python匯入程式的方式直譯程式
 
 由於目前針對影片製作提出了製作流程與語法，但目前因為暫定初代語法，未來會針對Python與不同藝術領域結合，所以這邊先提出語法的基本運作原則:
 
@@ -510,8 +510,6 @@ from . import vlase
 ```
 此方法是用於匯入素材、多媒體資料庫與套件，素材必須以指定的數位摘要或者指紋來指定的匯入檔案，以SHA2為例計算出檔案雜湊值最少前六碼來標記，匯入前會將指定的檔案做驗證才會真正使用。  
 
-影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。  
-
 基本的不安全匯入:
 
 ```MPDL
@@ -604,7 +602,7 @@ material(sequence=1, ss=None, t=None, to=None, high=1080, with=1920, db=False)
 ```
 匯入後可以指定檔案預處理，比如解碼、長寬、大小等，可用於加速在即時預覽的速度或加快輸出輸時的速度，素材設定不會影響輸出時的原始素材。  
 
-原因是素材的設定會暫存在`.temp`的目錄底下，系統會自動為他計算雜湊值並以雜湊值作檔案名稱，預設不會自動從`.temp`轉移與記錄在多媒體資料庫。
+原因是素材的設定會暫存在`__mpdlcache__`的目錄底下，系統會自動為他計算雜湊值並以雜湊值作檔案名稱，預設不會自動從`__mpdlcache__`轉移與記錄在多媒體資料庫。
 
 使用方式就是直接使用匯入的素材直接作為函式使用，例如直接依照匯入輸出。  
 
@@ -684,8 +682,6 @@ track(sequence=1, to=None)
 
 「軌道」(track)在這裡比較特別，在這邊是指剪輯軟體的「軌道」(track)，也是指[FFmpeg](https://ffmpeg.org/ffmpeg.html#Detailed-description)所提到[「串流」(Stream)](https://ffmpeg.org/ffmpeg.html#Stream-selection)，用於製作影片時用於疊加使用的素材，「軌道」(track)數字越大可以優先覆蓋數字排序較小的「軌道」(track)中的影像。  
 
-影像輸出的層級由「輸出」>「合成」>「軌道」>「剪輯」>「素材」>「匯入」。
-
 ```MPDL
 from . import aaaaaa as a
 from . import bbbbbb as b
@@ -746,7 +742,7 @@ from . import bbbbbb as b
 
 composite()
     track(1, to=40)
-        a.clip(sequence=1, ss=0, t=9)
+        clip(sequence=1, ss=0, t=9).a()
         b.clip(sequence=2, ss=10, t=19)
 
     track(2)
@@ -801,23 +797,24 @@ effects()
 其中特殊效果的參數依照不同的套件、模組、類別、函式與程式去使用，而套件、模組、類別、函式與程式的名稱也是依照使用去命名，並不限定只能`effects()`，不過`effects()`是內建可以運作的函式。
 
 ```MPDL
-from . import bbbbbb as b
+from . import bbbbbb as video
 
 composite()
   effects(deinterlacing=True)
-    b()
+    video()
 
 export()
 ```
 
-使用上必須匯入，此匯入的特效必須「必須」(MUST)是Python、MPDL或者可以提供影像處理調用的套件、模組、類別、函式與程式，但與多媒體類的素材不同的是，「可」選擇是否以數位摘要或指紋的方式匯入。
+使用上「可」選擇匯入，此匯入的特效必須「必須」(MUST)是Python、MPDL或者可以提供影像處理調用的套件、模組、類別、函式與程式，但與多媒體類的素材不同的是，「可」選擇是否以數位摘要或指紋的方式匯入。
 
 ```MPDL
 from effects import Effects as deinterlacing
-from . import bbbbbb as b
+from . import bbbbbb as video
 
 
 deinterlacing()
+  video ()
 
 export()
 ```
@@ -832,18 +829,38 @@ export()
 - 三維動畫軟體
 - 合成軟體  
 
-由於特殊效果也是素材的一種，因此在素材疊加時也是佔用一個軌道，但可以通過`def`去群組素材與特效，例如:
+由於特殊效果也是素材的一種，因此在素材疊加時也是佔用一個軌道，但可以通過`def`去達到群組素材與特效，例如:
 
 ```MPDL
+from effects import Effects as deinterlacing
+from . import aaaaaa as video1
+from . import bbbbbb as video2
 
+
+composite()
+    track(1, to=40)
+        a.clip(sequence=1, ss=0, t=10)
+        b.clip(sequence=2, ss=10, t=20)
+
+    track(2)
+        a.clip(sequence=1, ss=10, t=25)
+        b.clip(sequence=2, ss=30, t=39)
+
+export(export_movie_settings)
+
+deinterlacing()
+  video ()
+
+export()
 ```
 
 ### 合成
 ```
 composite()
 ```
+所謂的合成，如果以剪輯軟體就是將所有軌道畫面疊加起來所完成最終的結果，那FFmpeg則是濾鏡，透過指定的濾鏡將不同的串流編碼輸出，此函式不需要參數即可運作。
 
-所謂的合成，如果以剪輯軟體就是將所有軌道畫面疊加起來所完成最終的結果，那FFmpeg則是濾鏡，透過指定的濾鏡將不同的串流編碼輸出。
+合成後的如果拿到其他的函式去就是合併了軌道，跟使用`def`群組軌道是不同的。
 
 ### 輸出
 ```
@@ -851,6 +868,13 @@ export()
 ```
 將最終的影片輸出，可以選擇輸出的格式、大小、容器、影片長度、比例與解析度等。
 
+預設上輸出的影片會直接輸出在執行或命令此指令的所在目錄。
+
+### 播放
+```MPDL
+play()
+```
+用於檢視目前製作的狀況，不過使用這個時會直到關起來為止都會播放，當然可以搭配參數讓他自己關起來或者循環播放等功能。
 
 ## 運算
 ### 布林運算
